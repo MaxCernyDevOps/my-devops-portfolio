@@ -12,7 +12,7 @@ Portfolio of Max Cerny — Senior DevOps / DevSecOps & Cloud Platform Engineer f
 - Responsive design with mobile menu
 - Dynamic availability status system
 - Experience timeline driven by `data/experience.yaml`
-- SecOps Scanner product landing page at `/secops/` (`static/secops/index.html`)
+- SecOps Scanner product landing page at `/secops/` and `/cs/secops/` (shared `static/secops/secops.css`)
 - Case study pages
 - SEO optimized with Open Graph tags
 - Custom 404 page
