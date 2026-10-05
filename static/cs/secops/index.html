@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SecOps Scanner — každé riziko ve vašem kódu a CI/CD</title>
+    <meta name="description" content="SecOps Scanner nepřetržitě kontroluje zdrojový kód a CI/CD pipeline, sleduje běžící pipeline a pomocí AI vysvětluje a opravuje nalezené problémy. GitHub, GitLab, Azure DevOps, Harness. V cloudu nebo ve vaší síti.">
+    <link rel="canonical" href="https://maxinthecloud.com/cs/secops/">
+    <link rel="alternate" hreflang="en" href="https://maxinthecloud.com/secops/">
+    <link rel="alternate" hreflang="cs" href="https://maxinthecloud.com/cs/secops/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maxinthecloud.com/cs/secops/">
+    <meta property="og:title" content="SecOps Scanner — Vidí každé riziko v kódu a CI/CD. Opraví ho s AI.">
+    <meta property="og:description" content="Uniklá hesla, rizikové pipeline, slabá místa v dodavatelském řetězci a AI agenti s příliš velkou mocí — nalezeno, vysvětleno a opraveno přes pull requesty, které schvaluje váš tým.">
+    <meta name="theme-color" content="#0b0b1a">
+    <link rel="stylesheet" href="/secops/secops.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="wrap">
+        <a class="brand" href="#top" aria-label="SecOps Scanner – úvod">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3 5 7.5v8c0 6.8 4.6 11.6 11 13.5 6.4-1.9 11-6.7 11-13.5v-8L16 3Z" fill="#7c3aed"/><path d="m11 16 3.5 3.5L21.5 12" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            SecOps Scanner
+        </a>
+        <nav class="topnav" aria-label="Sekce">
+            <a href="#how-it-works">Jak to funguje</a>
+            <a href="#benefits">Přínosy</a>
+            <a href="#ai">AI</a>
+            <a href="#trust">Důvěra</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+        <div class="topbar-actions">
+            <a class="lang" href="/secops/" hreflang="en" lang="en">EN</a>
+            <a class="btn btn-primary" href="#demo">Domluvit demo</a>
+        </div>
+    </div>
+</header>
+
+<main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="wrap hero-grid">
+            <div>
+                <span class="pill"><span class="dot"></span> Live · AI-native SecOps pro kód &amp; CI/CD</span>
+                <h1>Vaše pipeline dodávají kód. <em>Ať s ním nedodávají i hesla.</em></h1>
+                <p class="lead">SecOps Scanner nepřetržitě hlídá váš zdrojový kód a CI/CD pipeline, najde bezpečnostní rizika, na kterých záleží, vysvětlí je srozumitelně — a pomocí AI připraví opravu, kterou váš tým jen schválí.</p>
+                <div class="hero-ctas">
+                    <a class="btn btn-primary" href="#demo">Domluvit demo</a>
+                    <a class="btn btn-ghost" href="#how-it-works">Jak to funguje</a>
+                    <a class="btn btn-ghost" href="https://secops-7h6vno64fbq2s.westeurope.cloudapp.azure.com/" target="_blank" rel="noopener">Vyzkoušet živě ↗</a>
+                </div>
+                <div class="hero-note">
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> Připojení během minut</span>
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> Pouze pro čtení</span>
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> Cloud nebo vlastní hosting</span>
+                </div>
+            </div>
+
+            <div class="mock" role="img" aria-label="Ilustrace přehledu SecOps Scanneru se skóre organizace, otevřenými nálezy a opravou navrženou AI">
+                <div class="mock-head">
+                    <div class="mock-dots"><i></i><i></i><i></i></div>
+                    <span class="mock-title">Přehled organizace · posledních 30 dní</span>
+                </div>
+                <div class="kpis">
+                    <div class="kpi"><b class="grade">B+</b><small>Bezpečnostní skóre</small></div>
+                    <div class="kpi"><b>12</b><small>Otevřená vysoká rizika</small></div>
+                    <div class="kpi"><b>3,1 d</b><small>Prům. doba opravy</small></div>
+                </div>
+                <div class="trend" aria-hidden="true">
+                    <svg viewBox="0 0 300 40" preserveAspectRatio="none"><polyline points="0,8 40,12 80,10 120,18 160,20 200,26 240,28 300,33" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round"/></svg>
+                </div>
+                <div class="finding">
+                    <span class="sev h">HIGH</span>
+                    <div>Cloudový klíč vypsaný v build logu<small>payments-api · deploy pipeline · ••••••••3f9a</small></div>
+                    <span class="fix">Opravit s AI</span>
+                </div>
+                <div class="finding">
+                    <span class="sev m">MED</span>
+                    <div>Cizí příspěvky běží na firemních strojích<small>web-portal · pull request workflow</small></div>
+                    <span class="fix">Opravit s AI</span>
+                </div>
+                <div class="finding">
+                    <span class="sev l">LOW</span>
+                    <div>Hlavní větev lze změnit bez review<small>internal-tools · nastavení repozitáře</small></div>
+                    <span class="fix">Opravit s AI</span>
+                </div>
+                <div class="ai-box"><b>Proč na tom záleží:</b> kdokoli s přístupem k tomuto logu může klíčem vstoupit do vašeho cloudu. Klíč zrotujte a v dalších bězích maskujte — pull request je připravený ke schválení.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLATFORMS -->
+    <div class="platforms">
+        <div class="wrap">
+            <span class="label">Funguje s</span>
+            <span>GitHub</span><span>GitHub Enterprise Server</span><span>GitLab</span><span>Azure DevOps</span><span>Harness</span>
+        </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <section id="problem">
+        <div class="wrap">
+            <span class="eyebrow">Problém</span>
+            <h2>Software dnes stavějí pipeline a AI.<br>Útočníci si toho všimli první.</h2>
+            <p class="lead">Každá firma, která dodává software, provozuje desítky automatických pipeline s přístupem ke kódu, cloudovým účtům a zákaznickým datům. Právě tam dnes začínají úniky.</p>
+            <div class="problems">
+                <div class="problem reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.7-8.7M16 7l3 3M14 9l2 2"/></svg></div>
+                    <h3>Uniklé přístupové údaje</h3>
+                    <p>Hesla a klíče končí v kódu a v build lozích. Jediný únik může otevřít váš cloud, vaše data i data vašich zákazníků.</p>
+                </div>
+                <div class="problem reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
+                    <h3>Útoky přes dodavatelský řetězec</h3>
+                    <p>Vaše produkty stojí na tisících balíčků třetích stran. Když je jeden kompromitovaný, musíte vědět, kde ho používáte — ještě dnes.</p>
+                </div>
+                <div class="problem reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 16h6"/></svg></div>
+                    <h3>AI agenti s příliš velkou mocí</h3>
+                    <p>AI asistenti dnes píšou kód a běží v pipeline. Při neopatrném nastavení je mohou řídit cizí lidé — a to s právem zápisu.</p>
+                </div>
+                <div class="problem reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4h6l1 2h3v14H5V6h3l1-2Z"/><path d="M9 12h6M9 16h4"/></svg></div>
+                    <h3>Tlak auditů</h3>
+                    <p>Regulátoři, zákazníci i vedení chtějí důkaz, že dodávka softwaru je bezpečná. Tabulky a screenshoty na to nestačí.</p>
+                </div>
+            </div>
+            <p class="callout">Bezpečnostní týmy nedokážou ručně projít každý repozitář, každý běh pipeline a každou novou zranitelnost. SecOps Scanner hlídá — rozhodují vaši lidé.</p>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="alt">
+        <div class="wrap center">
+            <span class="eyebrow">Jak to funguje</span>
+            <h2>Od nuly k úplnému přehledu ve třech krocích</h2>
+            <p class="lead">Žádní agenti na počítačích vývojářů, žádné změny v tom, jak vaše týmy pracují.</p>
+        </div>
+        <div class="wrap">
+            <div class="steps">
+                <div class="step reveal">
+                    <h3>Připojit</h3>
+                    <p>Propojte GitHub, GitLab, Azure DevOps nebo Harness s přístupem pouze pro čtení. Zabere to minuty, ne projekt.</p>
+                    <span class="tag">Minuty</span>
+                </div>
+                <div class="step reveal">
+                    <h3>Vidět</h3>
+                    <p>Průběžné skenování kódu a pipeline, živý monitoring běhů a kompletní přehled hesel a balíčků třetích stran.</p>
+                    <span class="tag">Nepřetržitě</span>
+                </div>
+                <div class="step reveal">
+                    <h3>Opravit</h3>
+                    <p>AI každý nález srozumitelně vysvětlí a připraví opravu jako pull request. Vaši inženýři ji zkontrolují a schválí — nic se nemerguje automaticky.</p>
+                    <span class="tag">Schvaluje člověk</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section id="benefits">
+        <div class="wrap center">
+            <span class="eyebrow">Co získáte</span>
+            <h2>Výsledky, ne jen další alerty</h2>
+            <p class="lead">Každá funkce odpovídá na otázku, kterou vám dříve či později položí vedení, auditoři nebo zákazníci.</p>
+        </div>
+        <div class="wrap">
+            <div class="benefits">
+                <div class="benefit reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.7-8.7M16 7l3 3"/></svg></div>
+                    <h3>Uniklá hesla zachycená včas</h3>
+                    <p class="outcome">Najděte odhalená hesla a klíče dřív než někdo jiný.</p>
+                    <p>Skenuje kód i logy pipeline a ukáže přesně, kde heslo uniklo — vždy maskovaně.</p>
+                </div>
+                <div class="benefit reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+                    <h3>Živý monitoring pipeline</h3>
+                    <p class="outcome">Víte hned, když se pipeline začne chovat podezřele.</p>
+                    <p>Sleduje běhy v reálném čase a upozorní na rizikové chování, například cizí kód na firemních strojích nebo upravené workflow.</p>
+                </div>
+                <div class="benefit reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+                    <h3>Inventář a rotace hesel</h3>
+                    <p class="outcome">Každý uložený přístupový údaj, jeho stáří a kde se používá.</p>
+                    <p>Odhalí stará a nepoužívaná hesla a jasně doporučí, co zrotovat jako první.</p>
+                </div>
+                <div class="benefit reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
+                    <h3>Přehled o dodavatelském řetězci</h3>
+                    <p class="outcome">Do druhého dne víte, když nová zranitelnost zasáhne váš kód.</p>
+                    <p>Kompletní inventář (SBOM — seznam všech používaných balíčků) napříč repozitáři. „Které repozitáře používají tuhle knihovnu?“ zodpovězeno během vteřin. Export do CycloneDX.</p>
+                </div>
+                <div class="benefit reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="3"/></svg></div>
+                    <h3>AI, která vysvětlí a opraví</h3>
+                    <p class="outcome">Z nálezů schválené opravy, ne další backlog.</p>
+                    <p>Srozumitelná vysvětlení, AI code review a pull requesty „Opravit s AI“, které váš tým schválí.</p>
+                </div>
+                <div class="benefit reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01"/></svg></div>
+                    <h3>Bezpečnost AI agentů</h3>
+                    <p class="outcome">AI asistenti mají pomáhat, ne ohrožovat.</p>
+                    <p>Kontroluje nastavení Copilot, Claude, Cursor a Codex ve vašich repozitářích a pipeline a označí agenty, které mohou ovládnout cizí lidé.</p>
+                </div>
+                <div class="benefit reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+                    <h3>Bezpečnostní skóre</h3>
+                    <p class="outcome">Jedno skóre pro celou organizaci.</p>
+                    <p>Ochrana větví, oprávnění pipeline a bezpečnostní praxe pro každý repozitář, shrnuté do skóre, které můžete sledovat v čase.</p>
+                </div>
+                <div class="benefit reveal">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 18a5 5 0 0 1-.6-10A6 6 0 0 1 18 8a4 4 0 0 1 0 10H7Z"/></svg></div>
+                    <h3>Cloud &amp; infrastruktura</h3>
+                    <p class="outcome">Víte, kde leží plány vaší infrastruktury — a kdo se k nim dostane.</p>
+                    <p>Kontroluje, kde je uložen Terraform state a jak dobře jsou chráněna Azure úložiště a key vaulty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-NATIVE -->
+    <section id="ai" class="ai">
+        <div class="wrap">
+            <span class="eyebrow">AI-native SecOps</span>
+            <h2>Těžkou práci dělá AI.<br>Poslední slovo má člověk.</h2>
+            <p class="lead">Většina nástrojů skončí u dlouhého seznamu alertů. SecOps Scanner každý nález vysvětlí, zkontroluje kód a připraví opravu — váš tým tak čas tráví schvalováním, ne pátráním.</p>
+            <div class="ai-grid">
+                <div class="ai-list">
+                    <div class="ai-item reveal">
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z"/></svg></div>
+                        <div><h3>Srozumitelná vysvětlení</h3><p>U každého nálezu je jasné, proč na něm záleží pro byznys — ne jen, které pravidlo se spustilo.</p></div>
+                    </div>
+                    <div class="ai-item reveal">
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></div>
+                        <div><h3>AI code review</h3><p>Druhý pár očí na změny, které se dotýkají bezpečnostně citlivého kódu.</p></div>
+                    </div>
+                    <div class="ai-item reveal">
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M6 8v8M18 16V9a3 3 0 0 0-3-3h-4"/></svg></div>
+                        <div><h3>Opravy se schválením člověka</h3><p>„Opravit s AI“ otevře pull request. Člověk ho zkontroluje a mergne. Nic se nemění samo.</p></div>
+                    </div>
+                    <div class="ai-item reveal">
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+                        <div><h3>Vlastní AI model</h3><p>Použijte svůj účet Azure OpenAI nebo Anthropic — kód tak zůstane v rámci smluv, které už máte.</p></div>
+                    </div>
+                    <div class="ai-item reveal">
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z"/></svg></div>
+                        <div><h3>Ochrana před rizikovými AI agenty</h3><p>Najde AI agenty, kteří s právem zápisu reagují na text od cizích lidí — novou cestu útoku, kterou většina nástrojů zatím neřeší.</p></div>
+                    </div>
+                </div>
+
+                <div class="pr reveal" role="img" aria-label="Ilustrace pull requestu připraveného AI, který čeká na schválení člověkem">
+                    <div class="pr-head"><span class="pr-badge">Otevřeno · čeká na review</span></div>
+                    <div class="pr-title">Oprava: nevypisovat cloudové přístupy do deploy logů</div>
+                    <p class="pr-why"><strong style="color:#fff">Proč:</strong> deploy krok vypisuje cloudový klíč do build logu. Kdokoli, kdo čte logy, ho může zneužít. Tato změna hodnotu maskuje a načítá ji z úložiště hesel.</p>
+                    <div class="diff">
+                        <div class="ctx">  - name: Deploy</div>
+                        <div class="del">-   run: echo "KEY=$CLOUD_KEY" &amp;&amp; ./deploy.sh</div>
+                        <div class="add">+   env:</div>
+                        <div class="add">+     CLOUD_KEY: ${{ secrets.CLOUD_KEY }}</div>
+                        <div class="add">+   run: ./deploy.sh</div>
+                    </div>
+                    <div class="pr-foot"><span>Připravila AI SecOps Scanneru</span><b>Merge vyžaduje schválení člověkem</b></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANAGEMENT -->
+    <section id="management">
+        <div class="wrap mgmt">
+            <div>
+                <span class="eyebrow">Pro management</span>
+                <h2>Odpovědi pro vedení i auditory</h2>
+                <p class="lead">Bezpečnostní lídři potřebují trendy a důkazy, ne surové nálezy. SecOps Scanner promění každodenní skenování v reporty, které dávají smysl i na poradě vedení.</p>
+                <ul class="checks">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span><b>Srozumitelné reporty</b> za 30 dní až 12 měsíců: vývoj rizika, co se opravilo a jak rychle.</span></li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span><b>Skóre organizace</b> — uvidíte, které týmy a repozitáře potřebují pozornost.</span></li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span><b>Dashboardy a aktivita týmů</b> — bezpečnostní práce na první pohled.</span></li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span><b>Notifikace tam, kde lidé pracují</b>: Slack, Microsoft Teams, e-mail a desktop.</span></li>
+                </ul>
+            </div>
+            <div class="report reveal" role="img" aria-label="Ilustrace čtvrtletního bezpečnostního reportu">
+                <div class="report-row"><strong>Čtvrtletní bezpečnostní report</strong><span>Ukázkové rozvržení</span></div>
+                <div class="report-row"><span>Skóre organizace</span><strong>C → B+</strong></div>
+                <div class="report-row"><span>Otevřená vysoká rizika</span><strong>Klesající trend</strong></div>
+                <div class="report-row" style="display:block"><span>Nálezy opravené v tomto období</span><div class="bar"><i style="width:72%"></i></div></div>
+                <div class="report-row" style="display:block"><span>Repozitáře splňující baseline</span><div class="bar"><i style="width:64%"></i></div></div>
+                <div class="report-row"><span>Průměrná doba opravy</span><strong>Po týmech</strong></div>
+                <p class="placeholder">Ilustrační hodnoty — váš report ukazuje vaše vlastní data.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST -->
+    <section id="trust" class="alt">
+        <div class="wrap center">
+            <span class="eyebrow">Důvěra &amp; nasazení</span>
+            <h2>Navrženo tak, abyste mu mohli svěřit kód</h2>
+            <p class="lead">Bezpečnostní nástroj se nikdy nesmí stát vaším dalším bezpečnostním rizikem.</p>
+        </div>
+        <div class="wrap">
+            <div class="trust">
+                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3>Výchozí přístup jen pro čtení</h3><p>Zapisuje pouze tehdy, když vaše organizace výslovně zapne AI opravy — a i pak jen formou pull requestů.</p></div></div>
+                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><div><h3>Hesla se nikdy neukládají</h3><p>Uniklé hodnoty se zobrazují maskovaně. Scanner hlásí, kde heslo je, ne jaké je.</p></div></div>
+                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4h6l1 2h3v14H5V6h3l1-2Z"/><path d="M9 12h6M9 16h4"/></svg></div><div><h3>Kompletní audit log</h3><p>Každá akce v produktu se zaznamenává — doložíte, kdo co udělal a kdy.</p></div></div>
+                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11l2 2 4-4"/></svg></div><div><h3>Firemní přihlašování</h3><p>Role, SSO přes OpenID Connect, přihlášení přes Google nebo GitHub a dvoufaktorové ověření.</p></div></div>
+                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><div><h3>Vaše platformy</h3><p>GitHub, GitHub Enterprise Server, GitLab, Azure DevOps a Harness.</p></div></div>
+                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z"/></svg></div><div><h3>Detekuje, upozorní, navrhne</h3><p>Nikdy sám neblokuje vaše nasazení. Každé rozhodnutí zůstává v rukou lidí.</p></div></div>
+            </div>
+            <div class="deploy">
+                <div><h3>Cloudová služba</h3><p>Začnete během minut. Nic neinstalujete ani nespravujete.</p></div>
+                <div><h3>Vlastní hosting</h3><p>Stejný produkt poběží uvnitř vaší sítě — i vedle GitHub Enterprise Serveru — když kód nesmí opustit firmu.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="wrap center">
+            <span class="eyebrow">FAQ</span>
+            <h2>Na co se ptají ti, kdo rozhodují</h2>
+        </div>
+        <div class="wrap">
+            <div class="faq">
+                <details>
+                    <summary>Mění náš kód?</summary>
+                    <p>Ne — výchozí přístup je jen pro čtení. Pokud zapnete AI opravy, scanner může otevírat pull requesty. Každý z nich zkontroluje a mergne člověk z vašeho týmu; nic se nemerguje automaticky.</p>
+                </details>
+                <details>
+                    <summary>Kam putuje náš kód?</summary>
+                    <p>Při vlastním hostingu zůstává ve vaší síti. Pro AI funkce můžete použít vlastní účet (Azure OpenAI nebo Anthropic), takže kód se zpracovává podle smluv, které už máte. Nalezená hesla jsou vždy maskovaná a nikdy se neukládají.</p>
+                </details>
+                <details>
+                    <summary>Jak dlouho trvá nasazení?</summary>
+                    <p>Připojení platformy s přístupem jen pro čtení zabere minuty. První nálezy uvidíte hned po dokončení úvodního skenu.</p>
+                </details>
+                <details>
+                    <summary>Které platformy podporuje?</summary>
+                    <p>GitHub (včetně GitHub Enterprise Serveru), GitLab, Azure DevOps a Harness.</p>
+                </details>
+                <details>
+                    <summary>Můžeme ho provozovat sami?</summary>
+                    <p>Ano. Stejný produkt běží jako cloudová služba nebo ve vlastním hostingu uvnitř vaší sítě.</p>
+                </details>
+                <details>
+                    <summary>Bude blokovat naše nasazení?</summary>
+                    <p>Ne. SecOps Scanner detekuje, upozorňuje a navrhuje opravy. Pipeline sám nezastavuje — o tom, co a kdy řešit, rozhodují vaše týmy.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="demo" class="cta">
+        <div class="wrap">
+            <h2>Uvidíte svá rizika dřív než útočníci</h2>
+            <p class="lead" style="margin-left:auto;margin-right:auto">Domluvte si krátké demo nad vašimi vlastními repozitáři, nebo si hned vyzkoušejte živou verzi.</p>
+            <div class="hero-ctas">
+                <a class="btn btn-primary" href="https://calendly.com/maxinthecloud-info/15min" target="_blank" rel="noopener">Domluvit demo</a>
+                <a class="btn btn-ghost" href="https://secops-7h6vno64fbq2s.westeurope.cloudapp.azure.com/" target="_blank" rel="noopener">Vyzkoušet živou verzi ↗</a>
+            </div>
+            <small>Raději e-mailem? <a href="mailto:info@maxinthecloud.com?subject=SecOps%20Scanner%20demo" style="color:#c4b5fd">info@maxinthecloud.com</a></small>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="wrap">
+        <span>© <span id="year">2026</span> SecOps Scanner · vytvořil <a href="/cs/">Max Cerny — MaxInTheCloud</a></span>
+        <span><a href="#how-it-works">Jak to funguje</a> · <a href="#faq">FAQ</a> · <a href="mailto:info@maxinthecloud.com">Kontakt</a></span>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        revealItems.forEach((el) => observer.observe(el));
+    } else {
+        revealItems.forEach((el) => el.classList.add('in'));
+    }
+</script>
+</body>
+</html>
