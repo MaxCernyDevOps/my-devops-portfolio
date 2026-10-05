@@ -1,12 +1,4 @@
 ---
-
-title: "Enterprise-Grade Cloud Infrastructure"
-
-layout: "index" 
-
+title: "Max Cerny — DevOps, DevSecOps & AI"
+layout: "index"
 ---
-
-\## 💡 Engineering Case Studies
-
-Real problems solved with custom engineering solutions.
-

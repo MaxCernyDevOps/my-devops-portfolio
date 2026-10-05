@@ -11,18 +11,17 @@
 <nav class="fixed w-full z-50 bg-[#0B0F19]/90 backdrop-blur-md border-b border-gray-800">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="{{ $langBase }}" class="font-mono text-xl font-bold tracking-tighter text-white cursor-pointer">
-            <i class="fa-solid fa-terminal text-blue-500 mr-2"></i>MAXINTHECLOUD<span class="text-gray-500">.</span><span class="text-blue-500">DEVOPS.ARCHITECT</span>
+            <i class="fa-solid fa-terminal text-blue-500 mr-2"></i>MAXINTHECLOUD<span class="hidden sm:inline"><span class="text-gray-600"> / </span><span class="text-purple-400">AI</span><span class="text-blue-500">·DEVSECOPS</span></span>
         </a>
 
         <!-- Desktop Menu -->
-        <div class="hidden md:flex gap-8 text-sm font-medium text-gray-300 items-center">
-            <a href="{{ $langBase }}#services" class="hover:text-blue-400 transition">{{ if $isCS }}Služby{{ else }}Services{{ end }}</a>
-            <a href="{{ $langBase }}#training" class="hover:text-blue-400 transition">{{ if $isCS }}Školení{{ else }}Training{{ end }}</a>
-            <a href="{{ $langBase }}#testimonials" class="hover:text-blue-400 transition">{{ if $isCS }}Reference{{ else }}References{{ end }}</a>
+        <div class="hidden lg:flex gap-6 text-sm font-medium text-gray-300 items-center">
+            <a href="/secops/" class="text-purple-300 hover:text-white transition font-bold"><i class="fa-solid fa-shield-virus mr-1"></i>SecOps Scanner</a>
+            <a href="{{ $langBase }}#ai" class="hover:text-blue-400 transition">AI</a>
+            <a href="{{ $langBase }}#expertise" class="hover:text-blue-400 transition">{{ if $isCS }}Dovednosti{{ else }}Skills{{ end }}</a>
+            <a href="{{ $langBase }}#experience" class="hover:text-blue-400 transition">{{ if $isCS }}Zkušenosti{{ else }}Experience{{ end }}</a>
             <a href="{{ $langBase }}#case-studies" class="hover:text-blue-400 transition">{{ if $isCS }}Případové studie{{ else }}Case Studies{{ end }}</a>
-            <button onclick="openModal('protocol-modal')" class="text-green-400 hover:text-green-300 font-mono font-bold text-xs border border-green-900/50 bg-green-900/10 px-3 py-1 rounded">
-                <i class="fa-solid fa-shield-halved mr-1"></i> {{ if $isCS }}Detail protokolu{{ else }}Protocol Detail{{ end }}
-            </button>
+            <a href="{{ $langBase }}#services" class="hover:text-blue-400 transition">{{ if $isCS }}Spolupráce{{ else }}Services{{ end }}</a>
             <!-- Language Switcher -->
             <a href="{{ $langToggleURL }}" class="flex items-center gap-2 text-gray-400 hover:text-white transition border border-gray-700 px-3 py-1 rounded">
                 {{ if $isCS }}
@@ -35,21 +34,20 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <button onclick="toggleMobileMenu()" class="md:hidden text-white text-2xl">
+        <button onclick="toggleMobileMenu()" class="lg:hidden text-white text-2xl">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#0B0F19] border-t border-gray-800">
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#0B0F19] border-t border-gray-800">
         <div class="px-6 py-4 flex flex-col gap-4">
-            <a href="{{ $langBase }}#services" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-blue-400 transition py-2">{{ if $isCS }}Služby{{ else }}Services{{ end }}</a>
-            <a href="{{ $langBase }}#training" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-blue-400 transition py-2">{{ if $isCS }}Školení{{ else }}Training{{ end }}</a>
-            <a href="{{ $langBase }}#testimonials" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-blue-400 transition py-2">{{ if $isCS }}Reference{{ else }}References{{ end }}</a>
+            <a href="/secops/" onclick="toggleMobileMenu()" class="text-purple-300 hover:text-white transition py-2 font-bold"><i class="fa-solid fa-shield-virus mr-1"></i>SecOps Scanner</a>
+            <a href="{{ $langBase }}#ai" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-blue-400 transition py-2">AI</a>
+            <a href="{{ $langBase }}#expertise" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-blue-400 transition py-2">{{ if $isCS }}Dovednosti{{ else }}Skills{{ end }}</a>
+            <a href="{{ $langBase }}#experience" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-blue-400 transition py-2">{{ if $isCS }}Zkušenosti{{ else }}Experience{{ end }}</a>
             <a href="{{ $langBase }}#case-studies" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-blue-400 transition py-2">{{ if $isCS }}Případové studie{{ else }}Case Studies{{ end }}</a>
-            <button onclick="openModal('protocol-modal'); toggleMobileMenu()" class="text-green-400 hover:text-green-300 font-mono font-bold text-xs border border-green-900/50 bg-green-900/10 px-3 py-2 rounded text-left">
-                <i class="fa-solid fa-shield-halved mr-1"></i> {{ if $isCS }}Detail protokolu{{ else }}Protocol Detail{{ end }}
-            </button>
+            <a href="{{ $langBase }}#services" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-blue-400 transition py-2">{{ if $isCS }}Spolupráce{{ else }}Services{{ end }}</a>
             <!-- Mobile Language Switcher -->
             <a href="{{ $langToggleURL }}" class="flex items-center gap-2 text-gray-400 hover:text-white transition border border-gray-700 px-3 py-2 rounded">
                 {{ if $isCS }}

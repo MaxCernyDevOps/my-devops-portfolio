@@ -7,23 +7,23 @@ defaultContentLanguageInSubdir = false
     languageCode = "en"
     languageName = "English"
     weight = 1
-    title = "Senior Azure DevOps Consultant | Enterprise Cloud Architect | MaxInTheCloud.com"
+    title = "Senior DevOps / DevSecOps & Cloud Platform Engineer | AI-driven Automation | MaxInTheCloud.com"
     [languages.en.params]
-      description = "Senior Azure DevOps Consultant specializing in Landing Zones, Terraform IaC, GitHub Actions, and enterprise cloud architecture for Fortune 500 clients."
+      description = "Senior DevOps / DevSecOps & Cloud Platform Engineer with 20 years of experience. AI agents for DevOps, AI red teaming, Microsoft Foundry, Kubernetes, Terraform and CI/CD across Azure, AWS and GCP."
 
   [languages.cs]
     languageCode = "cs"
     languageName = "Čeština"
     weight = 2
-    title = "Senior Azure DevOps Konzultant | Enterprise Cloud Architekt | MaxInTheCloud.com"
+    title = "Senior DevOps / DevSecOps & Cloud Platform Engineer | AI automatizace | MaxInTheCloud.com"
     [languages.cs.params]
-      description = "Senior Azure DevOps konzultant specializující se na Landing Zones, Terraform IaC, GitHub Actions a enterprise cloudovou architekturu pro Fortune 500 klienty."
+      description = "Senior DevOps / DevSecOps & Cloud Platform Engineer s 20 lety praxe. AI agenti pro DevOps, AI red teaming, Microsoft Foundry, Kubernetes, Terraform a CI/CD napříč Azure, AWS a GCP."
 
 [permalinks]
   "case-study" = "/case-study/:slug/"
 
 [params]
-  description = "Senior Azure DevOps Consultant specializing in Landing Zones, Terraform IaC, GitHub Actions, and enterprise cloud architecture for Fortune 500 clients."
+  description = "Senior DevOps / DevSecOps & Cloud Platform Engineer with 20 years of experience. AI agents for DevOps, AI red teaming, Microsoft Foundry, Kubernetes, Terraform and CI/CD across Azure, AWS and GCP."
 
 [markup]
   [markup.goldmark]

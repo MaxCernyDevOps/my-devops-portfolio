@@ -1,4 +1,4 @@
 ---
-title: "Senior Azure DevOps Konzultant"
+title: "Max Cerny — DevOps, DevSecOps & AI"
 layout: "index"
 ---

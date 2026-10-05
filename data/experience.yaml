@@ -1,0 +1,127 @@
+roles:
+  - company: "Škoda Auto"
+    years: "2026"
+    role:
+      en: "Senior DevOps / DevSecOps Engineer (contract)"
+      cs: "Senior DevOps / DevSecOps Engineer (kontrakt)"
+    ai: true
+    bullets:
+      en:
+        - "Design and modernisation of enterprise CI/CD pipelines; AI-assisted pipeline authoring and refactoring"
+        - "DevSecOps: security scanning, policy checks and hardening built into the delivery flow"
+        - "Pipeline migration Jenkins → Harness; Kubernetes workloads with Helm, Terraform and Python automation"
+      cs:
+        - "Návrh a modernizace enterprise CI/CD pipeline; psaní a refaktoring pipeline s pomocí AI"
+        - "DevSecOps: bezpečnostní skeny, policy kontroly a hardening přímo v delivery procesu"
+        - "Migrace pipeline Jenkins → Harness; Kubernetes workloady s Helm, Terraform a Python automatizace"
+    stack: ["Harness", "Jenkins", "GitHub Actions", "Kubernetes", "Helm", "Terraform", "Python"]
+
+  - company: "Ahold Delhaize (Albert)"
+    years: "2025"
+    role:
+      en: "Senior DevOps Consultant (remote, contract)"
+      cs: "Senior DevOps konzultant (remote, kontrakt)"
+    bullets:
+      en:
+        - "Operated and migrated the Databricks data platform to a new platform"
+        - "Built GitLab CI/CD pipelines for the enterprise platform; supported data engineers with data pipelines"
+        - "Kubernetes operations: Helm chart development, scaffolding, upgrades and production troubleshooting"
+      cs:
+        - "Provoz a migrace datové platformy Databricks na novou platformu"
+        - "CI/CD pipeline v GitLabu pro enterprise platformu; podpora data engineerů s datovými pipeline"
+        - "Provoz Kubernetes: vývoj Helm chartů, scaffolding, upgrady a troubleshooting produkce"
+    stack: ["Databricks", "GitLab CI", "Kubernetes", "Helm", "Terraform", "Python"]
+
+  - company: "Sanofi"
+    years: "2024"
+    role:
+      en: "Senior DevOps Consultant (remote, contract)"
+      cs: "Senior DevOps konzultant (remote, kontrakt)"
+    bullets:
+      en:
+        - "Developed CI/CD pipelines for the enterprise platform in GitHub Actions"
+        - "Designed and implemented GitHub governance-as-code automation for the whole platform"
+      cs:
+        - "Vývoj CI/CD pipeline pro enterprise platformu v GitHub Actions"
+        - "Návrh a implementace GitHub governance-as-code automatizace pro celou platformu"
+    stack: ["GitHub Actions", "Governance as Code", "Security"]
+
+  - company: "Novo Nordisk"
+    years: "2023"
+    role:
+      en: "Azure DevOps Consultant (remote, contract)"
+      cs: "Azure DevOps konzultant (remote, kontrakt)"
+    bullets:
+      en:
+        - "Developed and maintained CI/CD pipelines in Azure DevOps"
+        - "Maintained and troubleshot the Azure platform for the StudyBuilder clinical-study project"
+      cs:
+        - "Vývoj a údržba CI/CD pipeline v Azure DevOps"
+        - "Správa a troubleshooting Azure platformy pro projekt klinických studií StudyBuilder"
+    stack: ["Azure DevOps", "Azure", "Terraform"]
+
+  - company: "DHL"
+    years: "2022"
+    role:
+      en: "Senior DevOps Engineer (contract)"
+      cs: "Senior DevOps Engineer (kontrakt)"
+    bullets:
+      en:
+        - "Migration of CI/CD from Jenkins, Azure DevOps and GitLab to GitHub Actions — reusable workflow templates with built-in security scanning"
+        - "Containerised services on Kubernetes with Helm and GitOps; cluster operations and troubleshooting"
+      cs:
+        - "Migrace CI/CD z Jenkins, Azure DevOps a GitLab na GitHub Actions — znovupoužitelné šablony s vestavěnými bezpečnostními skeny"
+        - "Kontejnerizované služby na Kubernetes s Helm a GitOps; provoz a troubleshooting clusterů"
+    stack: ["GitHub Actions", "Jenkins", "Kubernetes", "Helm", "Terraform", "Python"]
+
+  - company: "GreenFlux"
+    years: "2021"
+    role:
+      en: "Azure DevOps Consultant (remote, contract)"
+      cs: "Azure DevOps konzultant (remote, kontrakt)"
+    bullets:
+      en:
+        - "Implemented CI/CD in Azure DevOps — 30 % shorter deployment time"
+        - "Terraform IaC on AWS for scalability and reliability; Azure VPN for secure hybrid connectivity"
+        - "Log analytics with Elasticsearch & Kibana — 25 % faster troubleshooting"
+      cs:
+        - "Zavedení CI/CD v Azure DevOps — o 30 % kratší nasazení"
+        - "Terraform IaC na AWS pro škálovatelnost a spolehlivost; Azure VPN pro bezpečnou hybridní konektivitu"
+        - "Log analytika s Elasticsearch & Kibana — o 25 % rychlejší troubleshooting"
+    stack: ["Azure", "AWS", "Terraform", "Azure DevOps", "ELK", "PowerShell"]
+
+  - company: "Norsk Hydro"
+    years: "2020"
+    role:
+      en: "Azure DevOps Consultant (remote, contract)"
+      cs: "Azure DevOps konzultant (remote, kontrakt)"
+    bullets:
+      en:
+        - "Designed and built an Azure platform; developed CI/CD pipelines, APIs and PowerShell modules"
+        - "Automated provisioning and operations with Terraform and Ansible"
+      cs:
+        - "Návrh a výstavba Azure platformy; CI/CD pipeline, API a PowerShell moduly"
+        - "Automatizovaný provisioning a provoz s Terraform a Ansible"
+    stack: ["Azure", "Terraform", "Ansible", "PowerShell"]
+
+earlier:
+  - company: "Linde Gas GDC"
+    years: "2018, 2020"
+    en: "Azure Consultant — Azure platform build & baselines, on-prem → Azure migration, AKS, Terraform / ARM"
+    cs: "Azure konzultant — výstavba Azure platformy, migrace on-prem → Azure, AKS, Terraform / ARM"
+  - company: "Tieto"
+    years: "2017 – 2018"
+    en: "Azure Consultant — Azure integration, Terraform automation, Docker on AKS"
+    cs: "Azure konzultant — Azure integrace, Terraform automatizace, Docker na AKS"
+  - company: "BNP Paribas PF"
+    years: "2015 – 2017"
+    en: "App. Admin Specialist — CZ + SK technology merger, UNIX & middleware, first Azure implementation"
+    cs: "App. Admin Specialist — technologická fúze CZ + SK, UNIX & middleware, první Azure implementace"
+  - company: "IBM GSDC Brno"
+    years: "2009 – 2011"
+    en: "IT Specialist — WebSphere Portal & AS, Linux administration, Java debugging"
+    cs: "IT Specialist — WebSphere Portal & AS, Linux administrace, Java debugging"
+  - company: "NETWINGS SOLUTIONS"
+    years: "2004 – 2009"
+    en: "Founder — founded at 18, grew to 20 employees and 300+ web / e-commerce projects; sold to a private investor"
+    cs: "Zakladatel — založeno v 18 letech, 20 zaměstnanců a 300+ webových / e-commerce projektů; prodáno soukromému investorovi"

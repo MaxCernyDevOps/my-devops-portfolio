@@ -1,6 +1,6 @@
 # MaxInTheCloud - DevOps Portfolio
 
-Professional portfolio website for Senior DevOps Architect built with Hugo.
+Portfolio of Max Cerny — Senior DevOps / DevSecOps & Cloud Platform Engineer focused on AI-driven automation. Built with Hugo.
 
 ## Tech Stack
 - **Hugo** - Static site generator
@@ -11,7 +11,9 @@ Professional portfolio website for Senior DevOps Architect built with Hugo.
 ## Features
 - Responsive design with mobile menu
 - Dynamic availability status system
-- Case study modals
+- Experience timeline driven by `data/experience.yaml`
+- SecOps Scanner product landing page at `/secops/` (`static/secops/index.html`)
+- Case study pages
 - SEO optimized with Open Graph tags
 - Custom 404 page
 - Smooth scroll navigation
@@ -33,4 +35,4 @@ This site is automatically deployed to GitHub Pages via GitHub Actions on every 
 Custom domain: maxinthecloud.com
 
 ## License
-© 2025 MaxInTheCloud. All rights reserved.
+© 2026 MaxInTheCloud. All rights reserved.

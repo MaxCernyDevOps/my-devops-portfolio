@@ -1,11 +1,18 @@
+{{ $isCS := eq .Site.Language.Lang "cs" }}
 <footer id="contact" class="bg-black py-24 px-6 border-t border-gray-800 text-center">
     <div class="max-w-3xl mx-auto">
-        <h2 class="text-4xl font-bold text-white mb-6">Let's talk infrastructure.</h2>
+        <h2 class="text-4xl font-bold text-white mb-4">{{ if $isCS }}Pojďme se bavit o platformách, bezpečnosti a AI.{{ else }}Let's talk platforms, security & AI.{{ end }}</h2>
+        <p class="text-gray-400 mb-10">Brno, Czech Republic · {{ if $isCS }}remote / on-site v EU{{ else }}remote / EU on-site{{ end }} · +420 773 751 656</p>
 
         <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <a href="mailto:info@maxinthecloud.com" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded transition"><i class="fa-solid fa-envelope"></i> Email Me</a>
+            <a href="mailto:info@maxinthecloud.com" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded transition"><i class="fa-solid fa-envelope"></i> {{ if $isCS }}Napsat email{{ else }}Email Me{{ end }}</a>
             <a href="https://wa.me/420773751656?text=Hello%20Max%2C%20I%27m%20interested%20in%20your%20DevOps%20services" target="_blank" class="px-8 py-4 bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold rounded transition"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
             <a href="https://www.linkedin.com/in/max-cerny-azure-cloud-consultant/" target="_blank" class="px-8 py-4 bg-[#0077b5] hover:bg-[#006399] text-white font-bold rounded transition"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 text-sm">
+            <a href="/Max-Cerny-CV-2026.pdf" target="_blank" class="text-gray-400 hover:text-white"><i class="fa-solid fa-file-pdf mr-1"></i>CV (PDF)</a>
+            <a href="/secops/" class="text-purple-300 hover:text-white"><i class="fa-solid fa-shield-virus mr-1"></i>SecOps Scanner</a>
         </div>
 
         <div class="mt-16 pt-8 border-t border-gray-800">
@@ -26,7 +33,7 @@
                 <i class="fa-solid fa-clock mr-1"></i>{{ now.Format "2006-01-02 15:04 MST" }}
             </span>
             {{ with getenv "COMMIT_SHA" }}
-            <a href="https://github.com/MaxCernyAlbert/my-devops-portfolio/commit/{{ . }}" target="_blank" class="hover:text-gray-500" title="View commit">
+            <a href="https://github.com/MaxCernyDevOps/my-devops-portfolio/commit/{{ . }}" target="_blank" class="hover:text-gray-500" title="View commit">
                 <i class="fa-solid fa-code-commit mr-1"></i>{{ substr . 0 7 }}
             </a>
             {{ else }}
@@ -39,7 +46,7 @@
                 <i class="fa-solid fa-stopwatch mr-1"></i>{{ . }}
             </span>
             {{ end }}
-            <a href="https://github.com/MaxCernyAlbert/my-devops-portfolio" target="_blank" class="hover:text-gray-500" title="View source">
+            <a href="https://github.com/MaxCernyDevOps/my-devops-portfolio" target="_blank" class="hover:text-gray-500" title="View source">
                 <i class="fa-brands fa-github mr-1"></i>Source
             </a>
         </div>
