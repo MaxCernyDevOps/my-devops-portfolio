@@ -25,6 +25,11 @@ defaultContentLanguageInSubdir = false
 [params]
   description = "Senior DevOps / DevSecOps & Cloud Platform Engineer with 20 years of experience. AI agents for DevOps, AI red teaming, Microsoft Foundry, Kubernetes, Terraform and CI/CD across Azure, AWS and GCP."
 
+  # MailerLite embedded form used for the optional sign-up shown before the CV download
+  [params.mailerlite]
+    accountId = ""
+    formId = ""
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

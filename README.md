@@ -18,6 +18,11 @@ Portfolio of Max Cerny — Senior DevOps / DevSecOps & Cloud Platform Engineer f
 - Custom 404 page
 - Smooth scroll navigation
 
+## CV Download Sign-up
+Clicking a CV download link shows an optional MailerLite sign-up for availability updates (once per browser).
+It is enabled by filling `params.mailerlite.accountId` and `params.mailerlite.formId` in `config.toml`;
+both IDs are in the form action of a MailerLite embedded form (`https://assets.mailerlite.com/jsonp/<accountId>/forms/<formId>/subscribe`).
+
 ## Local Development
 
 ```bash
