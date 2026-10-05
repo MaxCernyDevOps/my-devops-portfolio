@@ -27,8 +27,8 @@ defaultContentLanguageInSubdir = false
 
   # MailerLite embedded form used for the optional sign-up shown before the CV download
   [params.mailerlite]
-    accountId = ""
-    formId = ""
+    accountId = "2687526"
+    formId = "200523349052359700"
 
 [markup]
   [markup.goldmark]
