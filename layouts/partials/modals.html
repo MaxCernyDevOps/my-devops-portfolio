@@ -101,3 +101,123 @@ window.addEventListener('scroll', function() {
     }
 });
 </script>
+
+{{ with site.Params.mailerlite }}{{ if and .accountId .formId }}
+<!-- Optional newsletter sign-up shown before the CV download -->
+<div id="cv-modal" class="hidden fixed inset-0 z-[150] bg-black/80 backdrop-blur-md flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+    <div class="bg-[#111827] border border-gray-700 rounded-2xl max-w-md w-full p-8 relative shadow-2xl">
+        <button type="button" onclick="closeModal('cv-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-white" aria-label="{{ if $isCS }}Zavřít{{ else }}Close{{ end }}"><i class="fa-solid fa-xmark text-2xl"></i></button>
+
+        <div id="cv-signup-step">
+            <div class="w-12 h-12 rounded-xl bg-blue-900/30 text-blue-400 flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-bell"></i></div>
+            <h2 id="cv-modal-title" class="text-2xl font-bold text-white mb-2">{{ if $isCS }}Chcete vědět, až budu volný?{{ else }}Want to know when I'm available?{{ end }}</h2>
+            <p class="text-gray-400 text-sm mb-6">{{ if $isCS }}Nechte mi e-mail a dám vám vědět, když se mi uvolní kapacita pro nový projekt. Je to dobrovolné — CV si stáhnete i bez toho.{{ else }}Leave your e-mail and I'll let you know when I have capacity for a new project. It's optional — you get the CV either way.{{ end }}</p>
+
+            <form id="cv-signup-form" class="space-y-4" novalidate>
+                <label for="cv-signup-email" class="sr-only">E-mail</label>
+                <input id="cv-signup-email" type="email" name="fields[email]" autocomplete="email" required placeholder="{{ if $isCS }}vas@email.cz{{ else }}you@company.com{{ end }}" class="w-full p-3 bg-gray-800 border border-gray-700 rounded text-white placeholder-gray-500 focus:outline-none focus:border-blue-500">
+                <label class="flex items-start gap-3 text-xs text-gray-400 cursor-pointer">
+                    <input id="cv-signup-consent" type="checkbox" required class="mt-0.5 accent-blue-600">
+                    <span>{{ if $isCS }}Souhlasím se zasíláním e-mailů o mé dostupnosti. Odhlásit se můžete kdykoli jedním kliknutím.{{ else }}I agree to receive e-mails about Max's availability. Unsubscribe anytime with one click.{{ end }}</span>
+                </label>
+                <p id="cv-signup-error" class="hidden text-sm text-red-400"></p>
+                <button type="submit" class="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded transition"><i class="fa-solid fa-file-pdf mr-2"></i>{{ if $isCS }}Odebírat a stáhnout CV{{ else }}Subscribe & download CV{{ end }}</button>
+            </form>
+            <button type="button" id="cv-skip" class="w-full mt-3 px-4 py-3 text-gray-400 hover:text-white border border-gray-700 hover:border-gray-500 rounded transition text-sm">{{ if $isCS }}Jen stáhnout CV{{ else }}Just download the CV{{ end }}</button>
+        </div>
+
+        <div id="cv-thanks-step" class="hidden text-center">
+            <div class="w-12 h-12 rounded-full bg-green-900/30 text-green-400 flex items-center justify-center text-2xl mb-4 mx-auto"><i class="fa-solid fa-check"></i></div>
+            <h2 class="text-2xl font-bold text-white mb-2">{{ if $isCS }}Díky!{{ else }}Thank you!{{ end }}</h2>
+            <p class="text-gray-400 text-sm mb-6">{{ if $isCS }}CV se otevřelo v nové záložce. Pokud vám přijde potvrzovací e-mail, klikněte prosím na odkaz v něm.{{ else }}The CV opened in a new tab. If you receive a confirmation e-mail, please click the link inside.{{ end }}</p>
+            <button type="button" onclick="closeModal('cv-modal')" class="px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded transition">{{ if $isCS }}Zavřít{{ else }}Close{{ end }}</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    const endpoint = 'https://assets.mailerlite.com/jsonp/{{ .accountId }}/forms/{{ .formId }}/subscribe';
+    const seenKey = 'cv_signup_seen';
+    const errors = {
+        email: '{{ if $isCS }}Zadejte prosím platný e-mail.{{ else }}Please enter a valid e-mail.{{ end }}',
+        consent: '{{ if $isCS }}Pro odběr prosím potvrďte souhlas.{{ else }}Please confirm your consent to subscribe.{{ end }}',
+        failed: '{{ if $isCS }}Přihlášení se nepovedlo — CV máte otevřené, zkuste to prosím znovu.{{ else }}Sign-up failed — the CV is open, please try again.{{ end }}'
+    };
+    let cvUrl = null;
+
+    function wasSeen() {
+        try { return localStorage.getItem(seenKey) === '1'; } catch (e) { return false; }
+    }
+
+    function markSeen() {
+        try { localStorage.setItem(seenKey, '1'); } catch (e) {}
+    }
+
+    function openCv() {
+        window.open(cvUrl, '_blank', 'noopener');
+        markSeen();
+    }
+
+    function showError(message) {
+        const el = document.getElementById('cv-signup-error');
+        el.textContent = message;
+        el.classList.remove('hidden');
+    }
+
+    // Delegated so it also covers CTA buttons rendered later by the availability script
+    document.addEventListener('click', function (e) {
+        const link = e.target.closest('a[data-cv-download]');
+        if (!link || wasSeen() || e.ctrlKey || e.metaKey || e.shiftKey) return;
+        e.preventDefault();
+        cvUrl = link.href;
+        document.getElementById('cv-signup-step').classList.remove('hidden');
+        document.getElementById('cv-thanks-step').classList.add('hidden');
+        document.getElementById('cv-signup-error').classList.add('hidden');
+        openModal('cv-modal');
+        document.getElementById('cv-signup-email').focus();
+    });
+
+    document.getElementById('cv-skip').addEventListener('click', function () {
+        openCv();
+        closeModal('cv-modal');
+    });
+
+    document.getElementById('cv-signup-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = document.getElementById('cv-signup-email');
+        if (!email.checkValidity() || !email.value) return showError(errors.email);
+        if (!document.getElementById('cv-signup-consent').checked) return showError(errors.consent);
+
+        // Open the CV synchronously so popup blockers treat it as a user action
+        const alreadyOpened = wasSeen();
+        if (!alreadyOpened) openCv();
+
+        const submit = this.querySelector('button[type="submit"]');
+        submit.disabled = true;
+        const data = new FormData();
+        data.append('fields[email]', email.value.trim());
+        data.append('ml-submit', '1');
+        data.append('anticsrf', 'true');
+
+        fetch(endpoint, { method: 'POST', body: data })
+            .then(function (res) { return res.ok ? res.json() : { success: false }; })
+            .then(function (json) {
+                if (!json.success) throw new Error('rejected');
+                document.getElementById('cv-signup-step').classList.add('hidden');
+                document.getElementById('cv-thanks-step').classList.remove('hidden');
+            })
+            .catch(function () { showError(errors.failed); })
+            .finally(function () { submit.disabled = false; });
+    });
+
+    document.getElementById('cv-modal').addEventListener('click', function (e) {
+        if (e.target === this) closeModal('cv-modal');
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal('cv-modal');
+    });
+})();
+</script>
+{{ end }}{{ end }}
