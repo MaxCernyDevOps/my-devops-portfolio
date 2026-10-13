@@ -7,14 +7,16 @@ roles:
     ai: true
     bullets:
       en:
-        - "Design and modernisation of enterprise CI/CD pipelines; AI-assisted pipeline authoring and refactoring"
-        - "DevSecOps: security scanning, policy checks and hardening built into the delivery flow"
+        - "Designed and built an enterprise AI platform on Microsoft Foundry for a group battery manufacturer: onboarding as code, AI Gateway (APIM) with per-project model allow-lists and token quotas, cost allocation per project, kill switches — all Terraform, OIDC only, no secrets"
+        - "Self-service portal for project owners: usage, cost, keys and chat scoped by Entra ID groups, on-behalf-of access to Key Vault and the gateway"
+        - "Design and modernisation of enterprise CI/CD pipelines; AI-assisted pipeline authoring and refactoring; DevSecOps scanning and policy checks in the delivery flow"
         - "Pipeline migration Jenkins → Harness; Kubernetes workloads with Helm, Terraform and Python automation"
       cs:
-        - "Návrh a modernizace enterprise CI/CD pipeline; psaní a refaktoring pipeline s pomocí AI"
-        - "DevSecOps: bezpečnostní skeny, policy kontroly a hardening přímo v delivery procesu"
+        - "Návrh a výstavba enterprise AI platformy na Microsoft Foundry pro výrobce baterií ze skupiny: onboarding jako kód, AI Gateway (APIM) s povolenými modely a tokenovými kvótami na projekt, náklady po projektech, kill switche — vše v Terraformu, jen OIDC, bez secrets"
+        - "Self-service portál pro vlastníky projektů: spotřeba, náklady, klíče a chat omezené podle Entra ID skupin, přístup ke Key Vaultu a gateway jménem uživatele"
+        - "Návrh a modernizace enterprise CI/CD pipeline; psaní a refaktoring pipeline s pomocí AI; DevSecOps skeny a policy kontroly v delivery procesu"
         - "Migrace pipeline Jenkins → Harness; Kubernetes workloady s Helm, Terraform a Python automatizace"
-    stack: ["Harness", "Jenkins", "GitHub Actions", "Kubernetes", "Helm", "Terraform", "Python"]
+    stack: ["Microsoft Foundry", "Azure API Management", "Terraform", "GitHub Actions", "Harness", "Kubernetes", "Helm", "Python"]
 
   - company: "Ahold Delhaize (Albert)"
     years: "2025"
