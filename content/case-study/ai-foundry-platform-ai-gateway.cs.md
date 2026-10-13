@@ -1,6 +1,8 @@
 ---
 slug: "ai-foundry-platform-ai-gateway"
 title: "Enterprise AI platforma na Microsoft Foundry - self-service přístup k LLM přes AI Gateway"
+video: "/videos/ai-foundry-platform.mp4"
+videoPoster: "/videos/ai-foundry-platform.jpg"
 date: 2026-10-01
 description: "Případová studie: multi-tenant AI platforma na Microsoft Foundry pro evropského výrobce baterií. Onboarding projektů jako kód, AI Gateway na Azure API Management s povolenými modely a tokenovými kvótami na projekt, náklady po projektech a self-service portál — vše v Terraformu, bez secrets."
 tags: ["Microsoft Foundry", "AI Gateway", "APIM", "Terraform", "FinOps", "Platform Engineering"]
@@ -23,7 +25,7 @@ Pilot, který platformě předcházel, nic z toho nenabízel: jediný Foundry ú
 Platformu jsem navrhl a postavil jako tenkou, plně deklarativní vrstvu nad Microsoft Foundry.
 
 {{< mermaid >}}
-flowchart LR
+flowchart TB
     T["👩‍💻 Tým<br/>Entra ID token"]
     GW["🛡️ AI Gateway<br/>Azure API Management"]
     F["🧠 Microsoft Foundry<br/>GPT-5 · Claude"]
