@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SecOps Scanner — See every risk in your code and CI/CD</title>
-    <meta name="description" content="SecOps Scanner continuously checks your source code and CI/CD pipelines for security problems, watches pipelines as they run, and uses AI to explain and fix what it finds. GitHub, GitLab, Azure DevOps, Harness. Cloud or self-hosted.">
+    <meta name="description" content="SecOps Scanner watches your source code and CI/CD pipelines, finds the security risks that matter and uses AI to prepare fixes for your team to approve. Built by Max Cerny.">
     <link rel="canonical" href="https://maxinthecloud.com/secops/">
     <link rel="alternate" hreflang="en" href="https://maxinthecloud.com/secops/">
     <link rel="alternate" hreflang="cs" href="https://maxinthecloud.com/cs/secops/">
@@ -13,6 +13,7 @@
     <meta property="og:url" content="https://maxinthecloud.com/secops/">
     <meta property="og:title" content="SecOps Scanner — See every risk in your code and CI/CD. Fix it with AI.">
     <meta property="og:description" content="Leaked secrets, risky pipelines, supply-chain exposure and over-powered AI agents — found, explained and fixed through pull requests your team reviews.">
+    <meta property="og:image" content="https://secopscan.com/landing/secops-teaser.jpg">
     <meta name="theme-color" content="#0b0b1a">
     <link rel="stylesheet" href="/secops/secops.css">
 </head>
@@ -20,377 +21,38 @@
 
 <header class="topbar">
     <div class="wrap">
-        <a class="brand" href="#top" aria-label="SecOps Scanner home">
-            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3 5 7.5v8c0 6.8 4.6 11.6 11 13.5 6.4-1.9 11-6.7 11-13.5v-8L16 3Z" fill="#7c3aed"/><path d="m11 16 3.5 3.5L21.5 12" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            SecOps Scanner
-        </a>
-        <nav class="topnav" aria-label="Sections">
-            <a href="#how-it-works">How it works</a>
-            <a href="#benefits">Benefits</a>
-            <a href="#ai">AI</a>
-            <a href="#trust">Trust</a>
-            <a href="#faq">FAQ</a>
-        </nav>
-        <div class="topbar-actions">
-            <a class="lang" href="/cs/secops/" hreflang="cs" lang="cs">CZ</a>
-            <a class="btn btn-primary" href="#demo">Book a demo</a>
-        </div>
+        <a class="back" href="/">← maxinthecloud.com</a>
+        <a class="lang" href="/cs/secops/" hreflang="cs" lang="cs">CZ</a>
     </div>
 </header>
 
-<main id="top">
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="wrap hero-grid">
-            <div>
-                <span class="pill"><span class="dot"></span> Live now · AI-native SecOps for code &amp; CI/CD</span>
-                <h1>Your pipelines ship code. <em>Make sure they don't ship secrets.</em></h1>
-                <p class="lead">SecOps Scanner watches your source code and CI/CD pipelines around the clock, finds the security risks that matter, explains them in plain words — and uses AI to prepare the fix for your team to approve.</p>
-                <div class="hero-ctas">
-                    <a class="btn btn-primary" href="#demo">Book a demo</a>
-                    <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
-                    <a class="btn btn-ghost" href="https://www.secopscan.com/" target="_blank" rel="noopener">Try it live ↗</a>
-                </div>
-                <div class="hero-note">
-                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> Connects in minutes</span>
-                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> Read-only by design</span>
-                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> Cloud or self-hosted</span>
-                </div>
-            </div>
-
-            <div class="mock" role="img" aria-label="Illustration of the SecOps Scanner dashboard showing an organization score, open findings and an AI-proposed fix">
-                <div class="mock-head">
-                    <div class="mock-dots"><i></i><i></i><i></i></div>
-                    <span class="mock-title">Organization overview · last 30 days</span>
-                </div>
-                <div class="kpis">
-                    <div class="kpi"><b class="grade">B+</b><small>Security score</small></div>
-                    <div class="kpi"><b>12</b><small>Open high-risk</small></div>
-                    <div class="kpi"><b>3.1 d</b><small>Avg. time to fix</small></div>
-                </div>
-                <div class="trend" aria-hidden="true">
-                    <svg viewBox="0 0 300 40" preserveAspectRatio="none"><polyline points="0,8 40,12 80,10 120,18 160,20 200,26 240,28 300,33" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round"/></svg>
-                </div>
-                <div class="finding">
-                    <span class="sev h">HIGH</span>
-                    <div>Cloud key printed in a build log<small>payments-api · deploy pipeline · ••••••••3f9a</small></div>
-                    <span class="fix">Fix with AI</span>
-                </div>
-                <div class="finding">
-                    <span class="sev m">MED</span>
-                    <div>Outside contributions run on company machines<small>web-portal · pull request workflow</small></div>
-                    <span class="fix">Fix with AI</span>
-                </div>
-                <div class="finding">
-                    <span class="sev l">LOW</span>
-                    <div>Main branch can be changed without review<small>internal-tools · repository settings</small></div>
-                    <span class="fix">Fix with AI</span>
-                </div>
-                <div class="ai-box"><b>Why it matters:</b> anyone with access to this log can use the key to reach your cloud account. Rotate it and mask it in future runs — a pull request is ready for review.</div>
-            </div>
+<main>
+    <div class="wrap">
+        <div class="brand">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3 5 7.5v8c0 6.8 4.6 11.6 11 13.5 6.4-1.9 11-6.7 11-13.5v-8L16 3Z" fill="#7c3aed"/><path d="m11 16 3.5 3.5L21.5 12" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            SecOps Scanner
         </div>
-    </section>
+        <h1>See every risk in your code and CI/CD. <em>Fix it with AI.</em></h1>
+        <p class="lead">Leaked secrets, risky pipelines, vulnerable dependencies and over-powered AI agents — found, explained in plain words and fixed through pull requests your team approves.</p>
 
-    <!-- PLATFORMS -->
-    <div class="platforms">
-        <div class="wrap">
-            <span class="label">Works with</span>
-            <span>GitHub</span><span>GitHub Enterprise Server</span><span>GitLab</span><span>Azure DevOps</span><span>Harness</span>
+        <div class="video">
+            <video controls playsinline preload="none" poster="https://secopscan.com/landing/secops-teaser.jpg">
+                <source src="https://secopscan.com/landing/secops-teaser.mp4" type="video/mp4">
+                <a href="https://secopscan.com/landing/secops-teaser.mp4">Watch the SecOps Scanner video</a>
+            </video>
         </div>
+
+        <div class="ctas">
+            <a class="btn btn-primary" href="https://www.secopscan.com/" target="_blank" rel="noopener">Visit secopscan.com ↗</a>
+            <a class="btn btn-ghost" href="https://calendly.com/maxinthecloud-info/15min" target="_blank" rel="noopener">Book a demo</a>
+        </div>
+        <p class="note">Works with GitHub, GitLab, Azure DevOps and Harness · cloud or self-hosted</p>
     </div>
-
-    <!-- PROBLEM -->
-    <section id="problem">
-        <div class="wrap">
-            <span class="eyebrow">The problem</span>
-            <h2>Software is now built by pipelines and AI.<br>Attackers noticed first.</h2>
-            <p class="lead">Every company that ships software runs dozens of automated pipelines with access to code, cloud accounts and customer data. That is where today's breaches start.</p>
-            <div class="problems">
-                <div class="problem reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.7-8.7M16 7l3 3M14 9l2 2"/></svg></div>
-                    <h3>Leaked credentials</h3>
-                    <p>Passwords and keys end up in code and build logs. One leak can open your cloud, your data and your customers' data.</p>
-                </div>
-                <div class="problem reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
-                    <h3>Supply-chain attacks</h3>
-                    <p>Your products depend on thousands of third-party packages. When one is compromised, you need to know where it is used — today.</p>
-                </div>
-                <div class="problem reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 16h6"/></svg></div>
-                    <h3>AI agents with too much power</h3>
-                    <p>Coding assistants now write code and run in pipelines. Configured carelessly, they can be steered by outsiders and act with write access.</p>
-                </div>
-                <div class="problem reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4h6l1 2h3v14H5V6h3l1-2Z"/><path d="M9 12h6M9 16h4"/></svg></div>
-                    <h3>Audit pressure</h3>
-                    <p>Regulators, customers and boards ask for proof that delivery is secure. Spreadsheets and screenshots don't scale.</p>
-                </div>
-            </div>
-            <p class="callout">Security teams can't manually review every repository, every pipeline run and every new vulnerability. SecOps Scanner does the watching — your people make the decisions.</p>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section id="how-it-works" class="alt">
-        <div class="wrap center">
-            <span class="eyebrow">How it works</span>
-            <h2>From zero to full visibility in three steps</h2>
-            <p class="lead">No agents to install on developer machines, no changes to how your teams work.</p>
-        </div>
-        <div class="wrap">
-            <div class="steps">
-                <div class="step reveal">
-                    <h3>Connect</h3>
-                    <p>Link GitHub, GitLab, Azure DevOps or Harness with read-only access. Takes minutes, not a project.</p>
-                    <span class="tag">Minutes</span>
-                </div>
-                <div class="step reveal">
-                    <h3>See</h3>
-                    <p>Continuous scanning of code and pipelines, live monitoring of pipeline runs, and a complete inventory of secrets and third-party packages.</p>
-                    <span class="tag">Always on</span>
-                </div>
-                <div class="step reveal">
-                    <h3>Fix</h3>
-                    <p>AI explains each finding in plain words and prepares the fix as a pull request. Your engineers review and approve — nothing is merged automatically.</p>
-                    <span class="tag">Human-approved</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BENEFITS -->
-    <section id="benefits">
-        <div class="wrap center">
-            <span class="eyebrow">What you get</span>
-            <h2>Outcomes, not just alerts</h2>
-            <p class="lead">Each capability is built to answer a question your leadership, auditors or customers will eventually ask.</p>
-        </div>
-        <div class="wrap">
-            <div class="benefits">
-                <div class="benefit reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.7-8.7M16 7l3 3"/></svg></div>
-                    <h3>Leaked secrets, caught early</h3>
-                    <p class="outcome">Find exposed passwords and keys before someone else does.</p>
-                    <p>Scans code and pipeline logs and shows exactly where a secret leaked — always masked.</p>
-                </div>
-                <div class="benefit reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-                    <h3>Live pipeline monitoring</h3>
-                    <p class="outcome">Know the moment a pipeline starts behaving suspiciously.</p>
-                    <p>Watches runs as they happen and alerts on risky behaviour, such as outside code running on company machines or tampered workflows.</p>
-                </div>
-                <div class="benefit reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
-                    <h3>Secret inventory &amp; rotation</h3>
-                    <p class="outcome">Every stored credential, its age and where it's used.</p>
-                    <p>Spot old and unused credentials and get clear guidance on what to rotate first.</p>
-                </div>
-                <div class="benefit reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></div>
-                    <h3>Supply-chain visibility</h3>
-                    <p class="outcome">Know within a day when a new vulnerability hits your code.</p>
-                    <p>A full inventory (SBOM — a list of every package you use) across all repositories. "Which repos use this library?" answered in seconds. CycloneDX export.</p>
-                </div>
-                <div class="benefit reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="3"/></svg></div>
-                    <h3>AI that explains and fixes</h3>
-                    <p class="outcome">Turn findings into reviewed fixes, not backlog.</p>
-                    <p>Plain-language explanations, AI code review and "Fix with AI" pull requests for your team to approve.</p>
-                </div>
-                <div class="benefit reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01"/></svg></div>
-                    <h3>AI agent security</h3>
-                    <p class="outcome">Keep coding assistants helpful, not hazardous.</p>
-                    <p>Checks how Copilot, Claude, Cursor and Codex are set up in your repositories and pipelines, and flags agents that can be steered by outsiders.</p>
-                </div>
-                <div class="benefit reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
-                    <h3>Posture &amp; scorecard</h3>
-                    <p class="outcome">One score for the whole organization.</p>
-                    <p>Branch protection, pipeline permissions and security practices per repository, rolled up into a score you can track.</p>
-                </div>
-                <div class="benefit reveal">
-                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 18a5 5 0 0 1-.6-10A6 6 0 0 1 18 8a4 4 0 0 1 0 10H7Z"/></svg></div>
-                    <h3>Cloud &amp; infrastructure</h3>
-                    <p class="outcome">Know where your infrastructure blueprints live — and who can reach them.</p>
-                    <p>Checks where Terraform state is stored and how well its Azure storage and key vaults are protected.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI-NATIVE -->
-    <section id="ai" class="ai">
-        <div class="wrap">
-            <span class="eyebrow">AI-native SecOps</span>
-            <h2>AI does the heavy lifting.<br>People keep the final say.</h2>
-            <p class="lead">Most tools stop at a long list of alerts. SecOps Scanner explains every finding, reviews code and prepares the fix — so your team spends its time approving, not investigating.</p>
-            <div class="ai-grid">
-                <div class="ai-list">
-                    <div class="ai-item reveal">
-                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z"/></svg></div>
-                        <div><h3>Plain-language explanations</h3><p>Every finding says why it matters for the business, not just which rule fired.</p></div>
-                    </div>
-                    <div class="ai-item reveal">
-                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></div>
-                        <div><h3>AI code review</h3><p>A second pair of eyes on changes that touch security-sensitive code.</p></div>
-                    </div>
-                    <div class="ai-item reveal">
-                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M6 8v8M18 16V9a3 3 0 0 0-3-3h-4"/></svg></div>
-                        <div><h3>Fixes with human approval</h3><p>"Fix with AI" opens a pull request. A person reviews and merges it. Nothing changes on its own.</p></div>
-                    </div>
-                    <div class="ai-item reveal">
-                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
-                        <div><h3>Bring your own model</h3><p>Use your own Azure OpenAI or Anthropic account, so code stays within the contracts you already have.</p></div>
-                    </div>
-                    <div class="ai-item reveal">
-                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z"/></svg></div>
-                        <div><h3>Protection against risky AI agents</h3><p>Finds coding agents that act on outsiders' text with write access — a new attack path most tools don't look at yet.</p></div>
-                    </div>
-                </div>
-
-                <div class="pr reveal" role="img" aria-label="Illustration of an AI-prepared pull request awaiting human review">
-                    <div class="pr-head"><span class="pr-badge">Open · awaiting review</span></div>
-                    <div class="pr-title">Fix: stop printing cloud credentials in deploy logs</div>
-                    <p class="pr-why"><strong style="color:#fff">Why:</strong> the deploy step echoes a cloud key into the build log. Anyone who can read logs can reuse it. This change masks the value and reads it from the secret store instead.</p>
-                    <div class="diff">
-                        <div class="ctx">  - name: Deploy</div>
-                        <div class="del">-   run: echo "KEY=$CLOUD_KEY" &amp;&amp; ./deploy.sh</div>
-                        <div class="add">+   env:</div>
-                        <div class="add">+     CLOUD_KEY: ${{ secrets.CLOUD_KEY }}</div>
-                        <div class="add">+   run: ./deploy.sh</div>
-                    </div>
-                    <div class="pr-foot"><span>Prepared by SecOps Scanner AI</span><b>Merge requires human approval</b></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MANAGEMENT -->
-    <section id="management">
-        <div class="wrap mgmt">
-            <div>
-                <span class="eyebrow">For management</span>
-                <h2>Answers for your board and auditors</h2>
-                <p class="lead">Security leaders need trends and proof, not raw findings. SecOps Scanner turns daily scanning into reports that make sense in a board meeting.</p>
-                <ul class="checks">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span><b>Plain-language reports</b> covering 30 days to 12 months: risk trend, what was fixed and how fast.</span></li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span><b>Organization scorecard</b> so you can see which teams and repositories need attention.</span></li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span><b>Dashboards &amp; team activity</b> for an at-a-glance view of the security work being done.</span></li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span><b>Notifications where people work</b>: Slack, Microsoft Teams, e-mail and desktop.</span></li>
-                </ul>
-            </div>
-            <div class="report reveal" role="img" aria-label="Illustration of a quarterly security report">
-                <div class="report-row"><strong>Quarterly security report</strong><span>Example layout</span></div>
-                <div class="report-row"><span>Organization score</span><strong>C → B+</strong></div>
-                <div class="report-row"><span>High-risk findings open</span><strong>Trending down</strong></div>
-                <div class="report-row" style="display:block"><span>Findings fixed this period</span><div class="bar"><i style="width:72%"></i></div></div>
-                <div class="report-row" style="display:block"><span>Repositories meeting baseline</span><div class="bar"><i style="width:64%"></i></div></div>
-                <div class="report-row"><span>Average time to fix</span><strong>Shown per team</strong></div>
-                <p class="placeholder">Illustrative figures — your report shows your own data.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRUST -->
-    <section id="trust" class="alt">
-        <div class="wrap center">
-            <span class="eyebrow">Trust &amp; deployment</span>
-            <h2>Built to be trusted with your code</h2>
-            <p class="lead">A security tool should never become your next security risk.</p>
-        </div>
-        <div class="wrap">
-            <div class="trust">
-                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3>Read-only by default</h3><p>It only writes when your organization explicitly enables AI fixes — and even then only as pull requests.</p></div></div>
-                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><div><h3>Secrets never stored</h3><p>Leaked values are shown masked. The scanner reports where a secret is, not what it is.</p></div></div>
-                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4h6l1 2h3v14H5V6h3l1-2Z"/><path d="M9 12h6M9 16h4"/></svg></div><div><h3>Full audit log</h3><p>Every action in the product is recorded, so you can show who did what and when.</p></div></div>
-                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M17 11l2 2 4-4"/></svg></div><div><h3>Enterprise sign-in</h3><p>Roles, SSO via OpenID Connect, Google or GitHub sign-in and two-factor authentication.</p></div></div>
-                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><div><h3>Your platforms</h3><p>GitHub, GitHub Enterprise Server, GitLab, Azure DevOps and Harness.</p></div></div>
-                <div class="trust-item"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z"/></svg></div><div><h3>Detects, alerts, proposes</h3><p>It never blocks your delivery on its own. People stay in control of every decision.</p></div></div>
-            </div>
-            <div class="deploy">
-                <div><h3>Cloud service</h3><p>Start in minutes. Nothing to install or maintain.</p></div>
-                <div><h3>Self-hosted</h3><p>Run the same product inside your own network — including next to GitHub Enterprise Server — when code must not leave your walls.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq">
-        <div class="wrap center">
-            <span class="eyebrow">FAQ</span>
-            <h2>Questions decision makers ask</h2>
-        </div>
-        <div class="wrap">
-            <div class="faq">
-                <details>
-                    <summary>Does it change our code?</summary>
-                    <p>No — access is read-only by default. If you enable AI fixes, the scanner can open pull requests. A person on your team reviews and merges each one; nothing is merged automatically.</p>
-                </details>
-                <details>
-                    <summary>Where does our code go?</summary>
-                    <p>With the self-hosted option it stays inside your network. For AI features you can bring your own model account (Azure OpenAI or Anthropic), so code is processed under contracts you already have. Detected secrets are always masked and never stored.</p>
-                </details>
-                <details>
-                    <summary>How long does it take to set up?</summary>
-                    <p>Connecting a platform takes minutes with read-only access. You see your first findings as soon as the initial scan finishes.</p>
-                </details>
-                <details>
-                    <summary>Which platforms are supported?</summary>
-                    <p>GitHub (including GitHub Enterprise Server), GitLab, Azure DevOps and Harness.</p>
-                </details>
-                <details>
-                    <summary>Can we host it ourselves?</summary>
-                    <p>Yes. The same product runs as a cloud service or self-hosted inside your own network.</p>
-                </details>
-                <details>
-                    <summary>Will it block our deployments?</summary>
-                    <p>No. SecOps Scanner detects, alerts and proposes fixes. It doesn't stop pipelines on its own — your teams decide what to act on and when.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section id="demo" class="cta">
-        <div class="wrap">
-            <h2>See your own risks before attackers do</h2>
-            <p class="lead" style="margin-left:auto;margin-right:auto">Book a short demo on your own repositories, or explore the live version right now.</p>
-            <div class="hero-ctas">
-                <a class="btn btn-primary" href="https://calendly.com/maxinthecloud-info/15min" target="_blank" rel="noopener">Book a demo</a>
-                <a class="btn btn-ghost" href="https://www.secopscan.com/" target="_blank" rel="noopener">Try the live version ↗</a>
-            </div>
-            <small>Prefer e-mail? <a href="mailto:info@maxinthecloud.com?subject=SecOps%20Scanner%20demo" style="color:#c4b5fd">info@maxinthecloud.com</a></small>
-        </div>
-    </section>
 </main>
 
 <footer>
-    <div class="wrap">
-        <span>© <span id="year">2026</span> SecOps Scanner · built by <a href="/">Max Cerny — MaxInTheCloud</a></span>
-        <span><a href="#how-it-works">How it works</a> · <a href="#faq">FAQ</a> · <a href="mailto:info@maxinthecloud.com">Contact</a></span>
-    </div>
+    <div class="wrap">SecOps Scanner is built by <a href="/">Max Cerny — MaxInTheCloud</a></div>
 </footer>
 
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const revealItems = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        revealItems.forEach((el) => observer.observe(el));
-    } else {
-        revealItems.forEach((el) => el.classList.add('in'));
-    }
-</script>
 </body>
 </html>
