@@ -1,6 +1,8 @@
 ---
 slug: "ai-foundry-platform-ai-gateway"
 title: "Enterprise AI Platform on Microsoft Foundry - Self-Service LLM Access with an AI Gateway"
+video: "/videos/ai-foundry-platform.mp4"
+videoPoster: "/videos/ai-foundry-platform.jpg"
 date: 2026-10-01
 description: "Case study: a multi-tenant AI platform on Microsoft Foundry for a European battery manufacturer. Project onboarding as code, an AI Gateway on Azure API Management with per-project model allow-lists and token quotas, cost allocation per project and a self-service portal — all Terraform, no secrets."
 tags: ["Microsoft Foundry", "AI Gateway", "APIM", "Terraform", "FinOps", "Platform Engineering"]
@@ -23,7 +25,7 @@ The pilot that preceded the platform offered none of this: a single Foundry acco
 I designed and built the platform as a thin, fully declarative layer on top of Microsoft Foundry.
 
 {{< mermaid >}}
-flowchart LR
+flowchart TB
     T["👩‍💻 Team<br/>Entra ID token"]
     GW["🛡️ AI Gateway<br/>Azure API Management"]
     F["🧠 Microsoft Foundry<br/>GPT-5 · Claude"]

@@ -11,6 +11,14 @@
             {{ end }}
         </div>
 
+        {{ with .Params.video }}
+        <figure class="mb-10 mx-auto max-w-sm">
+            <video class="w-full rounded-2xl border border-gray-800 shadow-2xl" controls playsinline preload="none" {{ with $.Params.videoPoster }}poster="{{ . }}"{{ end }}>
+                <source src="{{ . }}" type="video/mp4">
+            </video>
+        </figure>
+        {{ end }}
+
         <article class="prose prose-invert prose-lg max-w-none border-t border-gray-800 pt-8">
             {{ .Content }}
         </article>
