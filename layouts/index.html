@@ -130,7 +130,10 @@
                         </div>
                     </div>
                     <p class="text-gray-400 mb-4">{{ if $isCS }}Multi-tenant platforma s izolovanými projekty a nasazeními modelů pro každého klienta za AI Gateway (Azure API Management) — tokenové kvóty, přehled o spotřebě a governance. Kompletně v Terraformu se zabezpečenou sítí.{{ else }}Multi-tenant platform with isolated per-client projects and model deployments behind an AI Gateway (Azure API Management) for token quotas, usage visibility and governance — fully in Terraform with secure networking.{{ end }}</p>
-                    <div class="flex flex-wrap gap-1">{{ range slice "Microsoft Foundry" "Azure OpenAI" "APIM" "Terraform" "Private Networking" }}<span class="text-[10px] font-mono bg-gray-800 text-gray-400 px-2 py-0.5 rounded">{{ . }}</span>{{ end }}</div>
+                    <div class="flex flex-wrap gap-1 mb-4">{{ range slice "Microsoft Foundry" "Azure OpenAI" "APIM" "Terraform" "Private Networking" }}<span class="text-[10px] font-mono bg-gray-800 text-gray-400 px-2 py-0.5 rounded">{{ . }}</span>{{ end }}</div>
+                    <div class="text-sm">
+                        <a href="{{ $langBase }}case-study/ai-foundry-platform-ai-gateway/" class="text-blue-400 hover:text-white">{{ if $isCS }}Číst případovou studii{{ else }}Read the case study{{ end }} <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
 
                 <div class="p-8 rounded-2xl bg-[#111827] border border-red-800/40 hover:border-red-500 transition">
@@ -261,6 +264,10 @@
 
     <!-- CASE STUDIES -->
     {{ $cases := slice
+        (dict "slug" "ai-foundry-platform-ai-gateway" "color" "blue" "icon" "fa-solid fa-building-shield" "tags" (slice "Microsoft Foundry" "AI Gateway" "Terraform")
+            "en" "AI Platform on Microsoft Foundry" "cs" "AI platforma na Microsoft Foundry"
+            "den" "Self-service LLM access for a battery manufacturer: onboarding as code, per-project model allow-lists, token quotas and cost allocation behind an AI Gateway. No secrets, all Terraform."
+            "dcs" "Self-service přístup k LLM pro výrobce baterií: onboarding jako kód, povolené modely a tokenové kvóty na projekt, náklady po projektech za AI Gateway. Bez secrets, vše v Terraformu.")
         (dict "slug" "sanofi-github-governance-framework" "color" "emerald" "icon" "fa-solid fa-building-columns" "tags" (slice "GitHub" "Enterprise" "Pharma")
             "en" "Sanofi GitHub Governance" "cs" "Sanofi GitHub Governance"
             "den" "Enterprise governance framework for a global pharmaceutical company. 200+ repositories, automated audits, 100% compliance coverage."
@@ -305,7 +312,7 @@
     <section id="case-studies" class="py-24 px-6 bg-[#0B0F19] border-t border-gray-800">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">{{ if $isCS }}Případové studie{{ else }}Case Studies{{ end }}</h2>
-            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">{{ if $isCS }}Konkrétní problémy, konkrétní řešení — governance, migrace CI/CD, bezpečnost a automatizace.{{ else }}Real problems, real solutions — governance, CI/CD migrations, security and automation.{{ end }}</p>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">{{ if $isCS }}Konkrétní problémy, konkrétní řešení — AI platformy, governance, migrace CI/CD, bezpečnost a automatizace.{{ else }}Real problems, real solutions — AI platforms, governance, CI/CD migrations, security and automation.{{ end }}</p>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {{ range $cases }}
