@@ -145,7 +145,10 @@
                         </div>
                     </div>
                     <p class="text-gray-400 mb-4">{{ if $isCS }}Návrh a vývoj LLM agentů pro DevOps úlohy. Automatizovaný AI red teaming (prompt injection, jailbreaky, únik dat) s PyRIT / garak, zapojený do CI jako opakovatelná bezpečnostní brána.{{ else }}Design and build of LLM agents for DevOps tasks. Automated AI red teaming (prompt injection, jailbreaks, data leakage) with PyRIT / garak, wired into CI as a repeatable security gate.{{ end }}</p>
-                    <div class="flex flex-wrap gap-1">{{ range slice "LLM Agents" "Prompt Injection" "GenAI Guardrails" "CI Security Gate" }}<span class="text-[10px] font-mono bg-gray-800 text-gray-400 px-2 py-0.5 rounded">{{ . }}</span>{{ end }}</div>
+                    <div class="flex flex-wrap gap-1 mb-4">{{ range slice "LLM Agents" "Prompt Injection" "GenAI Guardrails" "CI Security Gate" }}<span class="text-[10px] font-mono bg-gray-800 text-gray-400 px-2 py-0.5 rounded">{{ . }}</span>{{ end }}</div>
+                    <div class="text-sm">
+                        <a href="{{ $langBase }}case-study/ai-red-teaming-cicd-pipeline/" class="text-red-400 hover:text-white">{{ if $isCS }}Číst případovou studii{{ else }}Read the case study{{ end }} <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
 
                 <div class="p-8 rounded-2xl bg-[#111827] border border-orange-800/40 hover:border-orange-500 transition">
@@ -268,6 +271,10 @@
             "en" "AI Platform on Microsoft Foundry" "cs" "AI platforma na Microsoft Foundry"
             "den" "Self-service LLM access for a battery manufacturer: onboarding as code, per-project model allow-lists, token quotas and cost allocation behind an AI Gateway. No secrets, all Terraform."
             "dcs" "Self-service přístup k LLM pro výrobce baterií: onboarding jako kód, povolené modely a tokenové kvóty na projekt, náklady po projektech za AI Gateway. Bez secrets, vše v Terraformu.")
+        (dict "slug" "ai-red-teaming-cicd-pipeline" "color" "red" "icon" "fa-solid fa-user-secret" "tags" (slice "PyRIT" "garak" "AI Security")
+            "en" "AI Red Teaming in CI/CD" "cs" "AI red teaming v CI/CD"
+            "den" "YAML-defined red-team scans of LLM models and agents with PyRIT, garak and BlackIce. Comparable, auditable scorecards that act as deployment approval gates."
+            "dcs" "Red-team skeny LLM modelů a agentů definované v YAML s PyRIT, garak a BlackIce. Porovnatelné, auditovatelné scorecardy jako schvalovací brány pro nasazení.")
         (dict "slug" "sanofi-github-governance-framework" "color" "emerald" "icon" "fa-solid fa-building-columns" "tags" (slice "GitHub" "Enterprise" "Pharma")
             "en" "Sanofi GitHub Governance" "cs" "Sanofi GitHub Governance"
             "den" "Enterprise governance framework for a global pharmaceutical company. 200+ repositories, automated audits, 100% compliance coverage."
