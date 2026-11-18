@@ -19,25 +19,8 @@
     <section class="pt-36 pb-16 px-6 relative overflow-hidden">
         <div class="absolute top-20 right-0 w-1/3 h-1/3 bg-purple-600/10 blur-[100px] rounded-full pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-blue-600/10 blur-[100px] rounded-full pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            <div class="lg:col-span-4 lg:order-last flex justify-center lg:justify-end">
-                <div class="hero-photo relative w-44 h-44 sm:w-56 sm:h-56 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
-                    <div class="absolute -inset-6 rounded-full bg-gradient-to-tr from-blue-600/30 via-purple-600/25 to-cyan-400/30 blur-3xl pointer-events-none"></div>
-                    <div class="absolute -inset-3 rounded-full border border-dashed border-gray-700/70 hero-photo-orbit pointer-events-none"></div>
-                    <div class="relative w-full h-full rounded-full p-[3px] bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-400 shadow-2xl shadow-purple-900/40">
-                        <picture>
-                            <source srcset="/images/max-cerny.webp" type="image/webp">
-                            <img src="/images/max-cerny.jpg" alt="Maxim Černý" width="640" height="640" fetchpriority="high" class="w-full h-full rounded-full object-cover bg-[#111827]">
-                        </picture>
-                    </div>
-                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-left-6 lg:bottom-6 whitespace-nowrap font-mono text-xs bg-[#0b1120]/90 backdrop-blur border border-gray-700 text-gray-300 px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                        Remote EU · NL/BE/Nordics
-                    </div>
-                </div>
-            </div>
-            <div class="lg:col-span-8">
-            <div id="status-badge-placeholder" class="font-mono text-sm flex flex-wrap gap-3 mb-8">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div id="status-badge-placeholder" class="font-mono text-sm flex flex-wrap gap-3 mb-10">
                 <span class="bg-purple-900/20 border border-purple-900/50 text-purple-300 px-3 py-1 rounded flex items-center gap-2">
                     <i class="fa-solid fa-robot"></i> AI-driven Automation
                 </span>
@@ -48,6 +31,24 @@
                     <i class="fa-solid fa-cloud"></i> Azure · AWS · GCP · on-prem
                 </span>
             </div>
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-start">
+            <div class="lg:col-span-4 lg:order-last flex justify-center lg:justify-end lg:pt-6">
+                <div class="hero-photo relative w-44 h-44 sm:w-56 sm:h-56 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
+                    <div class="absolute -inset-6 rounded-full bg-gradient-to-tr from-blue-600/30 via-purple-600/25 to-cyan-400/30 blur-3xl pointer-events-none"></div>
+                    <div class="absolute -inset-3 rounded-full border border-dashed border-gray-700/70 hero-photo-orbit pointer-events-none"></div>
+                    <div class="relative w-full h-full rounded-full p-[3px] bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-400 shadow-2xl shadow-purple-900/40">
+                        <picture>
+                            <source srcset="/images/max-cerny.webp" type="image/webp">
+                            <img src="/images/max-cerny.jpg" alt="Maxim Černý" width="640" height="640" fetchpriority="high" class="w-full h-full rounded-full object-cover bg-[#111827]">
+                        </picture>
+                    </div>
+                    <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-xs bg-[#0b1120]/90 backdrop-blur border border-gray-700 text-gray-300 px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        Remote EU · NL/BE/Nordics
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-8">
 
             <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight">
                 Senior DevOps / DevSecOps <br class="hidden md:block">& Cloud Platform Engineer<br>
@@ -80,6 +81,7 @@
                 </div>
             </div>
             </div>
+        </div>
         </div>
     </section>
 
