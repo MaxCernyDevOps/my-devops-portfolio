@@ -2,17 +2,7 @@
 {{ $isCS := eq .Site.Language.Lang "cs" }}
 {{ $langBase := cond $isCS "/cs/" "/" }}
 {{ $lang := cond $isCS "cs" "en" }}
-{{ $certs := slice
-    (dict "img" "ms-expert.svg" "code" "AZ-400" "name" "DevOps Engineer Expert" "issuer" "Microsoft")
-    (dict "img" "ms-expert.svg" "code" "AI-500" "name" "Multi-Agent AI Solutions Expert" "issuer" "Microsoft")
-    (dict "img" "ms-associate.svg" "code" "AI-103" "name" "Azure AI Apps and Agents Developer Associate" "issuer" "Microsoft")
-    (dict "img" "ms-associate.svg" "code" "AZ-104" "name" "Azure Administrator Associate" "issuer" "Microsoft")
-    (dict "img" "aws.webp" "code" "DOP" "name" "AWS DevOps Engineer – Professional" "issuer" "Amazon Web Services")
-    (dict "img" "gcp.webp" "code" "PCDOE" "name" "Professional Cloud DevOps Engineer" "issuer" "Google Cloud")
-    (dict "img" "cka.webp" "code" "CKA" "name" "Certified Kubernetes Administrator" "issuer" "CNCF / Linux Foundation")
-    (dict "img" "tf.webp" "code" "HCTA" "name" "Terraform Associate" "issuer" "HashiCorp")
-    (dict "img" "claude.webp" "code" "CCA" "name" "Claude Certified Architect – Foundations" "issuer" "Anthropic")
-}}
+{{ $certs := site.Data.certs.certs }}
     <main id="main-content">
 
     <!-- HERO -->
@@ -73,10 +63,10 @@
                 <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-3">{{ if $isCS }}Certifikace{{ else }}Certified{{ end }}</p>
                 <div class="flex flex-wrap gap-x-3 gap-y-4">
                     {{ range $certs }}
-                    <a href="#certifications" title="{{ .issuer }}: {{ .name }}" class="cert-badge group flex flex-col items-center w-14 sm:w-16">
+                    <button type="button" data-cert="cert-{{ .id }}" title="{{ .issuer }}: {{ .name }}" aria-haspopup="dialog" class="cert-badge group flex flex-col items-center w-14 sm:w-16 cursor-pointer">
                         <img src="/images/certs/{{ .img }}" alt="{{ .issuer }} {{ .name }}" width="64" height="64" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 object-contain">
                         <span class="mt-1 font-mono text-[10px] text-gray-500 group-hover:text-gray-300 transition-colors">{{ .code }}</span>
-                    </a>
+                    </button>
                     {{ end }}
                 </div>
             </div>
@@ -451,13 +441,51 @@
             <h3 class="text-sm font-mono text-gray-500 uppercase tracking-widest mb-6">{{ if $isCS }}Certifikace{{ else }}Certifications{{ end }}</h3>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-9 gap-4">
                 {{ range $certs }}
-                <div class="cert-badge flex flex-col items-center text-center p-4 rounded-xl bg-[#111827] border border-gray-800 hover:border-gray-600 transition-colors">
+                <button type="button" data-cert="cert-{{ .id }}" aria-haspopup="dialog" class="cert-badge flex flex-col items-center text-center p-4 rounded-xl bg-[#111827] border border-gray-800 hover:border-gray-600 transition-colors cursor-pointer">
                     <img src="/images/certs/{{ .img }}" alt="{{ .issuer }} {{ .name }}" width="96" height="96" loading="lazy" class="w-20 h-20 object-contain mb-3">
                     <p class="text-white font-bold text-xs leading-snug">{{ .name }}</p>
                     <p class="text-[11px] text-gray-500 mt-1">{{ .issuer }} · <span class="font-mono whitespace-nowrap">{{ .code }}</span></p>
-                </div>
+                </button>
                 {{ end }}
             </div>
+            {{ range $certs }}
+            {{ $t := index . $lang }}
+            <dialog id="cert-{{ .id }}" class="cert-dialog w-[calc(100%-2rem)] max-w-lg rounded-2xl border border-gray-700 bg-[#111827] text-gray-300 p-0 shadow-2xl backdrop:bg-black/70 backdrop:backdrop-blur-sm" aria-labelledby="cert-{{ .id }}-title">
+                <div class="p-6 sm:p-8">
+                    <div class="flex items-start gap-5 mb-5">
+                        <img src="/images/certs/{{ .img }}" alt="" width="80" height="80" loading="lazy" class="w-20 h-20 object-contain shrink-0">
+                        <div class="min-w-0 pt-1">
+                            <p class="font-mono text-xs text-gray-500 uppercase tracking-widest">{{ .issuer }} · {{ .code }}</p>
+                            <h4 id="cert-{{ .id }}-title" class="text-white text-xl font-extrabold leading-snug mt-1">{{ .name }}</h4>
+                        </div>
+                        <button type="button" data-cert-close class="ml-auto -mt-2 -mr-2 w-9 h-9 shrink-0 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-colors" aria-label="{{ if $isCS }}Zavřít{{ else }}Close{{ end }}"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-5">{{ $t.summary }}</p>
+                    <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-3">{{ if $isCS }}Co z toho máte vy{{ else }}What it means for you{{ end }}</p>
+                    <ul class="space-y-2 mb-6">
+                        {{ range $t.points }}
+                        <li class="flex gap-3 text-sm leading-relaxed"><i class="fa-solid fa-check text-green-400 mt-1"></i><span>{{ . }}</span></li>
+                        {{ end }}
+                    </ul>
+                    <a href="{{ $langBase }}#contact" data-cert-close class="inline-flex items-center gap-2 text-sm font-bold text-blue-400 hover:text-blue-300">{{ if $isCS }}Probrat váš projekt{{ else }}Discuss your project{{ end }} <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </dialog>
+            {{ end }}
+            <script>
+                document.querySelectorAll('[data-cert]').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        var dlg = document.getElementById(btn.dataset.cert);
+                        if (dlg && dlg.showModal) dlg.showModal();
+                    });
+                });
+                document.querySelectorAll('.cert-dialog').forEach(function (dlg) {
+                    // Close on backdrop click
+                    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+                    dlg.querySelectorAll('[data-cert-close]').forEach(function (el) {
+                        el.addEventListener('click', function () { dlg.close(); });
+                    });
+                });
+            </script>
             <p class="text-gray-500 text-sm mt-6">{{ if $isCS }}Dále:{{ else }}Also:{{ end }} Microsoft Certified: Azure Security Engineer Associate · Azure Architect Technologies (AZ-303) · ITIL Foundation</p>
         </div>
         <div class="max-w-7xl mx-auto">

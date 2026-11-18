@@ -1,0 +1,162 @@
+certs:
+  - id: "az-400"
+    img: "ms-expert.svg"
+    code: "AZ-400"
+    name: "DevOps Engineer Expert"
+    issuer: "Microsoft"
+    en:
+      summary: "The core of most of my engagements: getting code from commit to production quickly, repeatably and with an audit trail."
+      points:
+        - "CI/CD in Azure DevOps and GitHub Actions with approvals, environments and release gates"
+        - "Pipeline templates teams reuse instead of copy-pasting YAML across 100+ repositories"
+        - "Security scanning and policy checks built into the delivery flow, not bolted on before the audit"
+    cs:
+      summary: "Jádro většiny mých zakázek: dostat kód z commitu do produkce rychle, opakovatelně a s auditní stopou."
+      points:
+        - "CI/CD v Azure DevOps a GitHub Actions se schvalováním, prostředími a release gates"
+        - "Šablony pipeline, které týmy znovu používají místo kopírování YAML napříč 100+ repozitáři"
+        - "Bezpečnostní skeny a policy kontroly přímo v delivery procesu, ne až před auditem"
+
+  - id: "ai-500"
+    img: "ms-expert.svg"
+    code: "AI-500"
+    name: "Multi-Agent AI Solutions Expert"
+    issuer: "Microsoft"
+    en:
+      summary: "Designing systems where several AI agents work together, and making them safe enough to run in production."
+      points:
+        - "Multi-agent architectures on Microsoft Foundry with clear roles, tools and hand-offs"
+        - "Guardrails, prohibited actions and human approval for agents that touch real systems"
+        - "Red teaming and evaluation in CI/CD so each agent version is tested before release"
+    cs:
+      summary: "Návrh systémů, kde spolupracuje víc AI agentů, a jejich zabezpečení tak, aby mohly běžet v produkci."
+      points:
+        - "Multi-agentní architektury na Microsoft Foundry s jasnými rolemi, nástroji a předáváním úloh"
+        - "Guardrails, zakázané akce a lidské schválení u agentů, kteří sahají na reálné systémy"
+        - "Red teaming a evaluace v CI/CD, takže každá verze agenta je otestovaná před vydáním"
+
+  - id: "ai-103"
+    img: "ms-associate.svg"
+    code: "AI-103"
+    name: "Azure AI Apps and Agents Developer Associate"
+    issuer: "Microsoft"
+    en:
+      summary: "Building and operating AI apps and agents on Azure, from the model deployment to the gateway in front of it."
+      points:
+        - "Microsoft Foundry projects, model deployments and agents provisioned as code"
+        - "An AI Gateway with per-project model allow-lists, token quotas and cost allocation"
+        - "Access through Entra ID and managed identities instead of shared API keys"
+    cs:
+      summary: "Stavba a provoz AI aplikací a agentů na Azure, od nasazení modelu po gateway před ním."
+      points:
+        - "Projekty, nasazení modelů a agenti v Microsoft Foundry jako kód"
+        - "AI Gateway s povolenými modely, tokenovými kvótami a náklady po projektech"
+        - "Přístup přes Entra ID a managed identity místo sdílených API klíčů"
+
+  - id: "az-104"
+    img: "ms-associate.svg"
+    code: "AZ-104"
+    name: "Azure Administrator Associate"
+    issuer: "Microsoft"
+    en:
+      summary: "The Azure foundation everything else sits on. When the platform misbehaves, I can go below the pipeline and fix it."
+      points:
+        - "Subscriptions, RBAC, networking, private endpoints and Key Vault set up properly"
+        - "Landing zones and governance that pass security review on the first attempt"
+        - "Troubleshooting identity, DNS and network issues that block deployments"
+    cs:
+      summary: "Základ Azure, na kterém stojí všechno ostatní. Když platforma zlobí, umím jít pod pipeline a opravit to."
+      points:
+        - "Subscriptions, RBAC, sítě, private endpointy a Key Vault nastavené správně"
+        - "Landing zones a governance, které projdou bezpečnostním review napoprvé"
+        - "Řešení problémů s identitou, DNS a sítí, které blokují nasazení"
+
+  - id: "aws-dop"
+    img: "aws.webp"
+    code: "DOP"
+    name: "AWS DevOps Engineer – Professional"
+    issuer: "Amazon Web Services"
+    en:
+      summary: "The same delivery and automation standards on AWS, for clients who run there or run on more than one cloud."
+      points:
+        - "Automated, multi-account deployments with rollback and monitoring built in"
+        - "Infrastructure as code with Terraform and CloudFormation, reviewed like application code"
+        - "Logging, alerting and incident response that work across accounts and regions"
+    cs:
+      summary: "Stejné standardy delivery a automatizace na AWS, pro klienty, kteří tam běží nebo jsou na víc cloudech."
+      points:
+        - "Automatizovaná nasazení přes víc účtů s vestavěným rollbackem a monitoringem"
+        - "Infrastruktura jako kód v Terraformu a CloudFormation, s review jako u aplikačního kódu"
+        - "Logování, alerting a řešení incidentů napříč účty a regiony"
+
+  - id: "gcp-pcdoe"
+    img: "gcp.webp"
+    code: "PCDOE"
+    name: "Professional Cloud DevOps Engineer"
+    issuer: "Google Cloud"
+    en:
+      summary: "Running services on Google Cloud the SRE way: measurable reliability instead of best effort."
+      points:
+        - "Delivery on GKE with Cloud Build and Cloud Deploy, including progressive rollouts"
+        - "SLOs, error budgets and alerting that page people only when it matters"
+        - "Cost-aware platform design so the cloud bill does not surprise anyone"
+    cs:
+      summary: "Provoz služeb na Google Cloud po SRE způsobu: měřitelná spolehlivost místo „nějak to běží“."
+      points:
+        - "Delivery na GKE s Cloud Build a Cloud Deploy včetně postupných rolloutů"
+        - "SLO, error budgety a alerting, který budí lidi jen tehdy, když to opravdu hoří"
+        - "Návrh platformy s ohledem na náklady, aby účet za cloud nikoho nepřekvapil"
+
+  - id: "cka"
+    img: "cka.webp"
+    code: "CKA"
+    name: "Certified Kubernetes Administrator"
+    issuer: "CNCF / Linux Foundation"
+    en:
+      summary: "Hands-on Kubernetes, tested in a live cluster rather than a multiple-choice quiz."
+      points:
+        - "Clusters on AKS, EKS and GKE, upgraded and kept healthy without downtime"
+        - "Helm charts and deployment standards development teams can follow"
+        - "Production troubleshooting of networking, storage and failing workloads"
+    cs:
+      summary: "Praktický Kubernetes, ověřený v živém clusteru, ne v testu s výběrem odpovědí."
+      points:
+        - "Clustery na AKS, EKS a GKE, upgradované a zdravé bez výpadků"
+        - "Helm charty a standardy nasazení, podle kterých se vývojové týmy umí řídit"
+        - "Řešení produkčních problémů se sítí, storage a padajícími workloady"
+
+  - id: "terraform"
+    img: "tf.webp"
+    code: "HCTA"
+    name: "Terraform Associate"
+    issuer: "HashiCorp"
+    en:
+      summary: "Infrastructure that is reviewed, versioned and reproducible, so environments stop drifting apart."
+      points:
+        - "Reusable Terraform modules for Azure, AWS and GCP"
+        - "Remote state, plan review in pull requests and OIDC-based pipelines without stored secrets"
+        - "Bringing hand-built infrastructure under code without breaking what already runs"
+    cs:
+      summary: "Infrastruktura, která prochází review, je verzovaná a reprodukovatelná, takže se prostředí přestanou rozjíždět."
+      points:
+        - "Znovupoužitelné Terraform moduly pro Azure, AWS a GCP"
+        - "Remote state, review plánu v pull requestu a pipeline přes OIDC bez uložených secrets"
+        - "Převedení ručně postavené infrastruktury do kódu, aniž by se rozbilo, co už běží"
+
+  - id: "claude"
+    img: "claude.webp"
+    code: "CCA"
+    name: "Claude Certified Architect – Foundations"
+    issuer: "Anthropic"
+    en:
+      summary: "Using Claude as a working tool in engineering, with the same controls I would expect from any production system."
+      points:
+        - "AI agents that write and refactor pipelines, IaC and fixes, with a human approving every change"
+        - "Claude integrated through Microsoft Foundry or the API with access control and cost tracking"
+        - "Clear rules on what agents may do on their own and what needs review"
+    cs:
+      summary: "Claude jako pracovní nástroj v engineeringu, se stejnými kontrolami, jaké čekám od každého produkčního systému."
+      points:
+        - "AI agenti, kteří píšou a refaktorují pipeline, IaC a opravy, a každou změnu schvaluje člověk"
+        - "Claude napojený přes Microsoft Foundry nebo API s řízením přístupu a sledováním nákladů"
+        - "Jasná pravidla, co smí agenti dělat sami a co musí projít review"
