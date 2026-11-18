@@ -2,13 +2,41 @@
 {{ $isCS := eq .Site.Language.Lang "cs" }}
 {{ $langBase := cond $isCS "/cs/" "/" }}
 {{ $lang := cond $isCS "cs" "en" }}
+{{ $certs := slice
+    (dict "img" "ms-expert.svg" "code" "AZ-400" "name" "DevOps Engineer Expert" "issuer" "Microsoft")
+    (dict "img" "ms-expert.svg" "code" "AI-500" "name" "Multi-Agent AI Solutions Expert" "issuer" "Microsoft")
+    (dict "img" "ms-associate.svg" "code" "AI-103" "name" "Azure AI Apps and Agents Developer Associate" "issuer" "Microsoft")
+    (dict "img" "ms-associate.svg" "code" "AZ-104" "name" "Azure Administrator Associate" "issuer" "Microsoft")
+    (dict "img" "aws.webp" "code" "DOP" "name" "AWS DevOps Engineer – Professional" "issuer" "Amazon Web Services")
+    (dict "img" "gcp.webp" "code" "PCDOE" "name" "Professional Cloud DevOps Engineer" "issuer" "Google Cloud")
+    (dict "img" "cka.webp" "code" "CKA" "name" "Certified Kubernetes Administrator" "issuer" "CNCF / Linux Foundation")
+    (dict "img" "tf.webp" "code" "HCTA" "name" "Terraform Associate" "issuer" "HashiCorp")
+    (dict "img" "claude.webp" "code" "CCA" "name" "Claude Certified Architect – Foundations" "issuer" "Anthropic")
+}}
     <main id="main-content">
 
     <!-- HERO -->
     <section class="pt-36 pb-16 px-6 relative overflow-hidden">
         <div class="absolute top-20 right-0 w-1/3 h-1/3 bg-purple-600/10 blur-[100px] rounded-full pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-blue-600/10 blur-[100px] rounded-full pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto relative z-10">
+        <div class="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            <div class="lg:col-span-4 lg:order-last flex justify-center lg:justify-end">
+                <div class="hero-photo relative w-44 h-44 sm:w-56 sm:h-56 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
+                    <div class="absolute -inset-6 rounded-full bg-gradient-to-tr from-blue-600/30 via-purple-600/25 to-cyan-400/30 blur-3xl pointer-events-none"></div>
+                    <div class="absolute -inset-3 rounded-full border border-dashed border-gray-700/70 hero-photo-orbit pointer-events-none"></div>
+                    <div class="relative w-full h-full rounded-full p-[3px] bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-400 shadow-2xl shadow-purple-900/40">
+                        <picture>
+                            <source srcset="/images/max-cerny.webp" type="image/webp">
+                            <img src="/images/max-cerny.jpg" alt="Maxim Černý" width="640" height="640" fetchpriority="high" class="w-full h-full rounded-full object-cover bg-[#111827]">
+                        </picture>
+                    </div>
+                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-left-6 lg:bottom-6 whitespace-nowrap font-mono text-xs bg-[#0b1120]/90 backdrop-blur border border-gray-700 text-gray-300 px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        Remote EU · NL/BE/Nordics
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-8">
             <div id="status-badge-placeholder" class="font-mono text-sm flex flex-wrap gap-3 mb-8">
                 <span class="bg-purple-900/20 border border-purple-900/50 text-purple-300 px-3 py-1 rounded flex items-center gap-2">
                     <i class="fa-solid fa-robot"></i> AI-driven Automation
@@ -38,6 +66,19 @@
                     <div class="text-[11px] text-gray-500 leading-tight mt-1">{{ index . 1 }}</div>
                 </div>
                 {{ end }}
+            </div>
+
+            <div class="mt-8 max-w-4xl">
+                <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-3">{{ if $isCS }}Certifikace{{ else }}Certified{{ end }}</p>
+                <div class="flex flex-wrap gap-x-3 gap-y-4">
+                    {{ range $certs }}
+                    <a href="#certifications" title="{{ .issuer }}: {{ .name }}" class="cert-badge group flex flex-col items-center w-14 sm:w-16">
+                        <img src="/images/certs/{{ .img }}" alt="{{ .issuer }} {{ .name }}" width="64" height="64" loading="lazy" class="w-14 h-14 sm:w-16 sm:h-16 object-contain">
+                        <span class="mt-1 font-mono text-[10px] text-gray-500 group-hover:text-gray-300 transition-colors">{{ .code }}</span>
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
             </div>
         </div>
     </section>
@@ -404,20 +445,23 @@
 
     <!-- CERTIFICATIONS & LANGUAGES -->
     <section id="certifications" class="py-20 px-6 bg-[#0f1623] border-t border-gray-800">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-            <div>
-                <h3 class="text-sm font-mono text-gray-500 uppercase tracking-widest mb-6">{{ if $isCS }}Certifikace{{ else }}Certifications{{ end }}</h3>
-                <div class="space-y-3">
-                    {{ range slice "DevOps Engineer Expert (AZ-400)" "Azure Security Engineer Associate" "Azure Administrator Associate" "Azure Architect Technologies (AZ-303)" }}
-                    <div class="flex items-center gap-4 text-white font-bold"><i class="fa-brands fa-microsoft text-blue-500 text-xl w-6 text-center"></i> Microsoft Certified: {{ . }}</div>
-                    {{ end }}
-                    <div class="flex items-center gap-4 text-white font-bold"><i class="fa-solid fa-cube text-purple-500 text-xl w-6 text-center"></i> HashiCorp Terraform Associate</div>
-                    <div class="flex items-center gap-4 text-white font-bold"><i class="fa-solid fa-list-check text-green-500 text-xl w-6 text-center"></i> ITIL Foundation</div>
+        <div class="max-w-7xl mx-auto mb-16">
+            <h3 class="text-sm font-mono text-gray-500 uppercase tracking-widest mb-6">{{ if $isCS }}Certifikace{{ else }}Certifications{{ end }}</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-9 gap-4">
+                {{ range $certs }}
+                <div class="cert-badge flex flex-col items-center text-center p-4 rounded-xl bg-[#111827] border border-gray-800 hover:border-gray-600 transition-colors">
+                    <img src="/images/certs/{{ .img }}" alt="{{ .issuer }} {{ .name }}" width="96" height="96" loading="lazy" class="w-20 h-20 object-contain mb-3">
+                    <p class="text-white font-bold text-xs leading-snug">{{ .name }}</p>
+                    <p class="text-[11px] text-gray-500 mt-1">{{ .issuer }} · <span class="font-mono whitespace-nowrap">{{ .code }}</span></p>
                 </div>
+                {{ end }}
             </div>
+            <p class="text-gray-500 text-sm mt-6">{{ if $isCS }}Dále:{{ else }}Also:{{ end }} Microsoft Certified: Azure Security Engineer Associate · Azure Architect Technologies (AZ-303) · ITIL Foundation</p>
+        </div>
+        <div class="max-w-7xl mx-auto">
             <div>
                 <h3 class="text-sm font-mono text-gray-500 uppercase tracking-widest mb-6">{{ if $isCS }}Jazyky{{ else }}Languages{{ end }}</h3>
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {{ range slice (slice "cz" (cond $isCS "Čeština" "Czech") (cond $isCS "Rodilý mluvčí" "Native")) (slice "gb" (cond $isCS "Angličtina" "English") (cond $isCS "Plynule (C2/C1)" "Fluent (C2/C1)")) (slice "ru" (cond $isCS "Ruština" "Russian") (cond $isCS "Plynule" "Fluent")) (slice "de" (cond $isCS "Němčina" "German") (cond $isCS "Základy" "Basic")) }}
                     <div class="flex items-center gap-3 bg-gray-800/30 px-4 py-2 rounded-lg border border-gray-700">
                         <span class="fi fi-{{ index . 0 }}" style="font-size: 2rem;"></span>
