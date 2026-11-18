@@ -200,6 +200,13 @@
     html { scroll-behavior: smooth; }
     body { background-color: #0B0F19; color: #e2e8f0; }
     .gradient-text { background: linear-gradient(to right, #3b82f6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .cert-badge img { filter: drop-shadow(0 4px 10px rgba(0,0,0,.45)); transition: transform .2s ease; }
+    .cert-badge:hover img { transform: translateY(-3px) scale(1.06); }
+    .hero-photo-orbit { animation: hero-orbit 40s linear infinite; }
+    @keyframes hero-orbit { to { transform: rotate(360deg); } }
+    .cert-badge img { filter: drop-shadow(0 4px 10px rgba(0,0,0,.45)); transition: transform .2s ease; }
+    .cert-badge:hover img { transform: translateY(-3px) scale(1.06); }
+    @media (prefers-reduced-motion: reduce) { .hero-photo-orbit { animation: none; } }
     /* Scrollbar styling */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #0B0F19; }
